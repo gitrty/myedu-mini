@@ -1,0 +1,61 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    // {
+    //   "path": "pages/index/index",
+    //   "style": {
+    //     "navigationBarTitleText": "uni-app"
+    //   }
+    // }, {
+    //   "path": "pages/login/login",
+    //   "style": {}
+    // }, 
+    {
+      "path": "pages/findgoodlessons/findgoodlessons",
+      "style": {
+        "navigationStyle":"custom"
+      }
+    }, {
+      "path": "pages/learningcenter/learningcenter",
+      "style": {}
+    }, {
+      "path": "pages/membership/membership",
+      "style": {}
+    }, {
+      "path": "pages/user/user",
+      "style": {}
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#C7C7C9",
+    "selectedColor": "#F18300",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [{
+      "pagePath": "pages/findgoodlessons/findgoodlessons",
+      "text": "发现好课",
+      "iconPath": "static/tabbar/information.png",
+      "selectedIconPath": "static/tabbar/information_select.png"
+    }, {
+      "pagePath": "pages/learningcenter/learningcenter",
+      "text": "学习中心",
+      "iconPath": "static/tabbar/itembank.png",
+      "selectedIconPath": "static/tabbar/itembank_select.png"
+    }, {
+      "pagePath": "pages/membership/membership",
+      "text": "会员权益",
+      "iconPath": "static/tabbar/user.png",
+      "selectedIconPath": "static/tabbar/user_select.png"
+    }, {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "static/tabbar/user.png",
+      "selectedIconPath": "static/tabbar/user_select.png"
+    }]
+  }
+}
