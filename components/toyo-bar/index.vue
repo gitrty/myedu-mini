@@ -1,69 +1,86 @@
 <template>
-	<view>
-		<view class="header" :style="{'height':titleBarHeight,'padding-top':statusBarHeight,'background-color': nav.bg}">
-			<text class="iconfont leftArrow header-back weight"   :style="{'border':nav.color}" v-if="nav.isdisPlayNavTitle" @click="back"></text>
-			<view class="header-title weight">{{nav.navTitle}}</view>
-		</view>
-		<view  :style="{'height':titleBarHeight,'padding-top':statusBarHeight}"></view>
-	</view>
+  <view class="">
+    <view class="" :style="{height:88+pTop+'rpx'}"></view>
+    <view class="hea">
+      <view class="" :style="{ 'background-color': '#fff', height: pTop + 'rpx' }"></view>
+      <view class="header">
+        {{ title }}
+        <view class="header-left">
+          <view class="" @tap="navigateBack()"><image src="../../static/bl.png" mode=""></image></view>
+          <view class="" @tap="jump('/pages/findgoodlessons/findgoodlessons')"><image src="../../static/index.png" mode=""></image></view>
+        </view>
+      </view>
+    </view>
+  </view>
 </template>
 <script>
-	export default {
-		props:["nav"],
-		data() {
-			return {
-				statusBarHeight: 0, 
-				titleBarHeight: 0, 
-			}
-		},
-		created() {
-			var  that = this;
-			 	uni.getSystemInfo({
-			 		success: function(res) {
-			 			if (res.model.indexOf('iPhone') !== -1) {
-							that.titleBarHeight = 44 + 'px';
-			 			} else {
-			 				that.titleBarHeight = 48  + 'px';
-						}
-							that.statusBarHeight = res.statusBarHeight  + 'px'
-					},
-						
-			 	})
-		 },
-		methods: {
-			 // 回到上一页
-			 back: function(){
-				 uni.navigateBack({
-				 	delta:1
-				 })
-			 }
-		}
-	}
+export default {
+  props: {
+    title: {
+      type: String,
+      default: '标题'
+    }
+  },
+  data() {
+    return {
+      pTop: 0,
+      top: 0
+    };
+  },
+  created() {
+    let _this = this;
+    uni.getSystemInfo({
+      success: function(res) {
+        // 状态栏高度
+        _this.pTop = res.statusBarHeight + 20;
+        _this.top = res.statusBarHeight + 20;
+      }
+    });
+  }
+};
 </script>
 
-<style>
-	
-	.header {
-		display: flex;
-		align-items: center;
-		top: 0;
-		position: fixed;
-		width: 100%;
-		z-index: 100;
-		left:0;
-	}
-	
-	.header .header-title {
-		position: absolute;
-		left: 50%;
-		font-size: 38upx;
-		transform: translateX(-50%);
-	}
-	.header-back{
-		position: absolute;
-		left:15upx;
-		font-size:30upx;
-		padding: 10upx;
-		border-radius: 50%;
-	}
+<style lang="less" scoped>
+.hea {
+  background-color: #fff;
+  position: fixed;
+  z-index: 999;
+  top: 0rpx;
+}
+.header {
+  width: 750rpx;
+  height: 88rpx;
+  position: relative;
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 36rpx;
+  color: #252525;
+  background-color: #fff;
+  .header-left {
+    width: 174rpx;
+    height: 64rpx;
+    position: absolute;
+    top: 0;
+    top: 50%;
+    margin-top: -32rpx;
+    left: 14rpx;
+    border-radius: 105rpx;
+    border: 1rpx solid #eaeaea;
+    display: flex;
+    align-items: center;
+    > view {
+      flex: 1;
+      height: 37rpx;
+      line-height: 37rpx;
+      text-align: center;
+      > image {
+        width: 36rpx;
+        height: 36rpx;
+      }
+    }
+    > view:nth-child(1) {
+      border-right: 1rpx solid #ccc;
+    }
+  }
+}
 </style>

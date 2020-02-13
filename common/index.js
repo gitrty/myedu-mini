@@ -98,4 +98,4 @@ export default {
   }
 }
 const urlLoader = data => `?${Object.keys(data).map(item => `${item}=${data[item]}`).join('&')}`
-const switchList = ['/pages/information/information', '/pages/itembank/itembank', '/pages/user/user']
+const switchList = ['/pages/findgoodlessons/findgoodlessons', '/pages/learningcenter/learningcenter', '/pages/membership/membership', '/pages/user/user']

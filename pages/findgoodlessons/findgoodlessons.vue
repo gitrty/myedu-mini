@@ -2,7 +2,7 @@
   <view class="idx">
     <!-- 自定义顶部 -->
     <view class="top-bar">
-      <view class="top-select">
+      <view class="top-select" @tap="jump('/pages/findgoodlessons/select/select')">
         <image src="../../static/logo.png" mode=""></image>
         <text>人工智能</text>
       </view>
@@ -39,7 +39,7 @@
             <movable-view direction="all" :style="{width:'600rpx',display:'flex'}" inertia="true">
               <!-- 滑动区域左边3个 -->
               <view class="movable-left">
-                <view class="training-video" v-for="index of 3" :key="index">
+                <view class="training-video" v-for="index of 3" :key="index" @tap="jump('/pages/findgoodlessons/videodetails/videodetails')">
                   <view class="training-video-l">
                     <image src="../../static/logo.png" mode=""></image>
                     <view class="viedo-tip">
@@ -138,7 +138,7 @@
       <view class="notice-every">
         查看全部
       </view>
-      
+ 
       <!-- 精品小课 -->
       <view class="quality">
         精品小课
@@ -164,7 +164,66 @@
     </view>
     <!-- right - 往期录播 -->
     <view class="tab-right" v-show="!tabBar">
-      123
+      <!-- 滑动区域 -->
+      <view class="t-r-top">
+        <movable-area :style="{height:'120rpx'}">
+            <movable-view direction="all" :style="{width:'350rpx',height:'120rpx'}" inertia="true">
+              <view class="movable-wid">
+                <view class="choice-kc fl" :class="{'c-active':choiceKc===0}" @tap="choiceKc=0">
+                  <image :src="choiceKc===0?'../../static/logo.png':'../../static/zt-qt.png'" mode=""></image>
+                  <text>全部录播</text>
+                </view> 
+                <view class="choice-kc fl" :class="{'c-active':choiceKc===1}" @tap="choiceKc=1">
+                  <image :src="choiceKc===1?'../../static/logo.png':'../../static/zt-java.png'"></image>
+                  <text>JAVA架构</text>
+                </view> 
+                <view class="choice-kc fl" :class="{'c-active':choiceKc===2}" @tap="choiceKc=2">
+                  <image :src="choiceKc===2?'../../static/logo.png':'../../static/zt-dsj.png'"></image>
+                  <text>大数据</text>
+                </view> 
+                <view class="choice-kc fl" :class="{'c-active':choiceKc===3}" @tap="choiceKc=3">
+                  <image :src="choiceKc===3?'../../static/logo.png':'../../static/zt-py.png'"></image>
+                  <text>人工智能</text>
+                </view> 
+                <view class="choice-kc fl" :class="{'c-active':choiceKc===4}" @tap="choiceKc=4">
+                  <image :src="choiceKc===4?'../../static/logo.png':'../../static/zt-jg.png'"></image>
+                  <text>架构</text>
+                </view>   
+                <view class="choice-kc fl" :class="{'c-active':choiceKc===5}" @tap="choiceKc=5">
+                  <image :src="choiceKc===5?'../../static/logo.png':'../../static/zj-qd.png'"></image>
+                  <text>WEB前端</text>  
+                </view>
+              </view>
+            </movable-view>
+        </movable-area>
+      </view>
+      <!-- 视频区域 -->
+      <view class="t-r-viedo">
+        <view class="training-video" v-for="index of 10" :key="index">
+          <view class="training-video-l">
+            <image src="../../static/logo.png" mode=""></image>
+            <view class="video-free" v-if="index==1">
+              免费看
+            </view>
+          </view>
+          <view class="t-video-text">
+            <view class="t-video-text-t">
+              并发编程从入门到入魔并发编程从入门到入魔
+            </view>
+          </view>
+          <view class="video-icon-num">
+            <view class="">
+              <image src="../../static/logo.png" mode=""></image>
+              <text>6666</text>
+            </view>
+            <view class="">
+              <image src="../../static/logo.png" mode=""></image>
+              <text>7777</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    
     </view>
   </view>
 </template>
@@ -173,7 +232,8 @@
 export default {
   data() {
     return {
-      tabBar: true
+      tabBar: true,  // 为你推荐/往期录播切换
+      choiceKc: 0,  // 录播分类切换
     };
   },
   onShow() {}
@@ -276,6 +336,8 @@ export default {
   height: 486rpx;
   width: 100%;
   padding-left: 32rpx;
+
+}
   .training-video{
     width: 655rpx;
     height: 134rpx;
@@ -346,7 +408,6 @@ export default {
      }
    }
   }
-}
 .notice{
   margin: 48rpx auto 0;
   width: 686rpx;
@@ -471,5 +532,80 @@ export default {
   color: #999;
   line-height: 80rpx;
   margin-bottom: 35rpx;
+}
+
+.tab-right{
+  width: 750rpx;
+  margin-top:220rpx;
+}
+.t-r-top{
+  height: 120rpx;
+  padding:0 32rpx;
+  .movable-wid{
+    width: 1056rpx;
+  }
+  .choice-kc{
+    width: 144rpx;
+    height: 120rpx;
+    background-color: #f8f8f8;
+    margin-right: 32rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    >image{
+      width: 40rpx;
+      height: 40rpx;
+    }
+    >text{
+      font-size: 26rpx;
+      color: #666;
+      margin-top: 7rpx;
+    }
+  }
+  .c-active{
+    background-color: #fff5eb;
+    >text{
+      color: #f18300;
+    }
+  }
+}
+.t-r-viedo{
+  padding: 0 32rpx;
+  margin-top: 50rpx;
+  .training-video{
+    position: relative;
+    width: 686rpx;
+    .video-free{
+      position: absolute;
+      top: -2rpx;
+      left: -4rpx;
+      width: 80rpx;
+      height: 32rpx;
+      background: linear-gradient(to right, #FDD100 , #f18300);
+      border-radius: 53rpx;
+      font-size: 20rpx;
+      color: #fff;
+      line-height: 32rpx;
+      text-align: center;
+    }
+  }
+  .video-icon-num{
+    position: absolute;
+    bottom: 8rpx;
+    left: 265rpx;
+    font-size: 24rpx;
+    color: #999;
+    >view{
+      float: left;
+      margin-right: 31rpx;
+      >image{
+        width: 18rpx;
+        height: 22rpx;
+        margin-right: 8rpx;
+        margin-bottom: -1rpx;
+      }
+    }
+  }
 }
 </style>
