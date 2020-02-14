@@ -39,7 +39,7 @@
             <movable-view direction="all" :style="{width:'600rpx',display:'flex'}" inertia="true">
               <!-- 滑动区域左边3个 -->
               <view class="movable-left">
-                <view class="training-video" v-for="index of 3" :key="index" @tap="jump('/pages/findgoodlessons/videodetails/videodetails')">
+                <view class="training-video" v-for="index of 3" :key="index" @tap="jump('/pages/findgoodlessons/coursedetails/coursedetails')">
                   <view class="training-video-l">
                     <image src="../../static/logo.png" mode=""></image>
                     <view class="viedo-tip">
@@ -199,7 +199,7 @@
       </view>
       <!-- 视频区域 -->
       <view class="t-r-viedo">
-        <view class="training-video" v-for="index of 10" :key="index">
+        <view class="training-video" v-for="index of 10" :key="index"  @tap="jump('/pages/findgoodlessons/videodetails/videodetails')">
           <view class="training-video-l">
             <image src="../../static/logo.png" mode=""></image>
             <view class="video-free" v-if="index==1">

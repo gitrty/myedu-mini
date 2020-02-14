@@ -9,9 +9,9 @@ import mixins from './common'
 Vue.use(mixins)
 
 import toyoBar from '@components/toyo-bar'
-import wucTab from '@components/wuc-tab/wuc-tab'
+import toyoRate from '@components/toyo-rate'
 Vue.component('toyoBar', toyoBar)
-Vue.component('wucTab', wucTab)
+Vue.component('toyoRate', toyoRate)
 
 Vue.config.productionTip = false
 

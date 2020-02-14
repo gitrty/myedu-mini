@@ -25,6 +25,12 @@
     }, {
       "path": "pages/findgoodlessons/videodetails/videodetails",
       "style": {}
+    }, {
+      "path": "pages/findgoodlessons/coursedetails/coursedetails",
+      "style": {}
+    }, {
+      "path": "pages/findgoodlessons/evaluationcourse/evaluationcourse",
+      "style": {}
     }
   ],
   "globalStyle": {
@@ -74,6 +80,14 @@
     }, {
       "name": "videodetails", //模式名称
       "path": "pages/findgoodlessons/videodetails/videodetails", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "coursedetails", //模式名称
+      "path": "pages/findgoodlessons/coursedetails/coursedetails", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "evaluationcourse", //模式名称
+      "path": "pages/findgoodlessons/evaluationcourse/evaluationcourse", //启动页面，必选
       "query": "" //启动参数，在页面的onLoad函数里面得到。
     }]
   }
