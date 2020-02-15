@@ -24,12 +24,38 @@
       "style": {}
     }, {
       "path": "pages/findgoodlessons/videodetails/videodetails",
-      "style": {}
+      "style": {
+        // "disableScroll": true
+      }
     }, {
       "path": "pages/findgoodlessons/coursedetails/coursedetails",
       "style": {}
     }, {
       "path": "pages/findgoodlessons/evaluationcourse/evaluationcourse",
+      "style": {}
+    }, {
+      "path": "pages/learningcenter/everycurriculum/everycurriculum",
+      "style": {}
+    }, {
+      "path": "pages/learningcenter/everyrecord/everyrecord",
+      "style": {}
+    }, {
+      "path": "pages/user/order/order",
+      "style": {}
+    }, {
+      "path": "pages/user/mycollection/mycollection",
+      "style": {}
+    }, {
+      "path": "pages/user/coupon/coupon",
+      "style": {}
+    }, {
+      "path": "pages/user/footprint/footprint",
+      "style": {}
+    }, {
+      "path": "pages/user/mystatus/mystatus",
+      "style": {}
+    }, {
+      "path": "pages/user/problem/problem",
       "style": {}
     }
   ],
@@ -88,6 +114,46 @@
     }, {
       "name": "evaluationcourse", //模式名称
       "path": "pages/findgoodlessons/evaluationcourse/evaluationcourse", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "learningcenter", //模式名称
+      "path": "pages/learningcenter/learningcenter", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "everycurriculum", //模式名称
+      "path": "pages/learningcenter/everycurriculum/everycurriculum", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "everyrecord", //模式名称
+      "path": "pages/learningcenter/everyrecord/everyrecord", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "user", //模式名称
+      "path": "pages/user/user", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "order", //模式名称
+      "path": "pages/user/order/order", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "mycollection", //模式名称
+      "path": "pages/user/mycollection/mycollection", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "coupon", //模式名称
+      "path": "pages/user/coupon/coupon", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "footprint", //模式名称
+      "path": "pages/user/footprint/footprint", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "mystatus", //模式名称
+      "path": "pages/user/mystatus/mystatus", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "problem", //模式名称
+      "path": "pages/user/problem/problem", //启动页面，必选
       "query": "" //启动参数，在页面的onLoad函数里面得到。
     }]
   }

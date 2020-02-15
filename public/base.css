@@ -1,7 +1,7 @@
 view,
 text {
   box-sizing: border-box;
-  font-family: PingFangSC-Medium !important;
+  /* font-family: PingFangSC-Medium !important; */
 }
 
 .clearfix::after {
@@ -50,14 +50,12 @@ text {
   color: #63DD27;
 }
 
-/* @font-face {
-  font-family: 'PingFangSCM1e1ecef5d021066';
-  src: url('//cdn.repository.webfont.com/webfonts/nomal/135270/47086/5e12da8af629d802080d937e.gif?r=126687498907');
-  src: url('//cdn.repository.webfont.com/webfonts/nomal/135270/47086/5e12da8af629d802080d937e.gif?r=126687498907?#iefix') format('embedded-opentype'), url('//cdn.repository.webfont.com/webfonts/nomal/135270/47086/5e12da8af629d802080d937e.png?r=126687498907') format('woff2'), url('//cdn.repository.webfont.com/webfonts/nomal/135270/47086/5e12da8af629d802080d937e.bmp?r=126687498907') format('woff'), url('//cdn.repository.webfont.com/webfonts/nomal/135270/47086/5e12da8af629d802080d937e.jpg?r=126687498907') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+button::after {
+  border: none;
 }
 
-.css1e1ecef5d021066 {
-  font-family: 'PingFangSCM1e1ecef5d021066';
-} */
+button {
+  background-color: #fff;
+  border-radius:0;
+  padding: 0;
+}

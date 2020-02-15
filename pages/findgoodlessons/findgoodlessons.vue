@@ -1,14 +1,15 @@
 <template>
   <view class="idx">
     <!-- 自定义顶部 -->
-    <view class="top-bar">
-      <view class="top-select" @tap="jump('/pages/findgoodlessons/select/select')">
+    <view class="top-bar" :style="{'height':112+pTop+'rpx','background-color':'#fff'}">
+      <view class="" ></view>
+      <view class="top-select" :style="{'margin-top':pTop+'rpx'}" @tap="jump('/pages/findgoodlessons/select/select')">
         <image src="../../static/logo.png" mode=""></image>
         <text>人工智能</text>
       </view>
     </view>
     <!-- top -->
-    <view class="top-tab">
+    <view class="top-tab"  :style="{top:112+pTop+'rpx'}">
       <view :class="{ active: tabBar }" @tap="tabBar = true">
         为你推荐
         <view v-show="tabBar"></view>
@@ -19,7 +20,7 @@
       </view>
     </view>
     <!-- left - 为你推荐 -->
-    <view class="tab-left" v-show="tabBar">
+    <view class="tab-left" v-show="tabBar" :style="{'margin-top':220+pTop+'rpx'}">
       <!-- banner -->
        <view class="find-banner">
         <swiper :style="{height:'296rpx'}" class="swiper" :indicator-dots="true" :autoplay="true" :interval="1000" :duration="800" :circular="true" :indicator-color="'#e5e5e5'" :indicator-active-color="'#fff'">
@@ -163,7 +164,7 @@
       </view>
     </view>
     <!-- right - 往期录播 -->
-    <view class="tab-right" v-show="!tabBar">
+    <view class="tab-right" v-show="!tabBar" :style="{'margin-top':220+pTop+'rpx'}">
       <!-- 滑动区域 -->
       <view class="t-r-top">
         <movable-area :style="{height:'120rpx'}">
@@ -234,9 +235,19 @@ export default {
     return {
       tabBar: true,  // 为你推荐/往期录播切换
       choiceKc: 0,  // 录播分类切换
+      pTop:0
     };
   },
-  onShow() {}
+  onShow() {},
+  created() {
+    let _this = this;
+    uni.getSystemInfo({
+      success: function(res) {
+        // 状态栏高度
+        _this.pTop = res.statusBarHeight + 20;
+      }
+    });
+  }
 };
 </script>
 
@@ -253,10 +264,10 @@ export default {
   z-index: 2;
   top: 0;
   background-color: #fff;
+  padding-left: 32rpx;
   .top-select {
     width: 490rpx;
     height: 64rpx;
-    margin-top: 24rpx;
     background-color: #f8f8f8;
     border-radius: 32rpx;
     color: #999;
