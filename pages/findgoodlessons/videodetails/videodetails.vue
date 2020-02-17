@@ -5,7 +5,7 @@
     <view class="viedo-image">
       <image src="../../../static/logo.png" mode=""></image>
       <view class="mask-play">
-        <image src="../../../static/logo.png" mode=""></image>
+        <image src="../../../static/big-play.png" mode=""></image>
         <text>使用流量播放，约666M</text>
       </view>
     </view>
@@ -14,11 +14,11 @@
       <view class="">1小时快速搭建可视化项目</view>
       <view class="video-icon-num">
         <view class="">
-          <image src="/static/logo.png" mode=""></image>
+          <image src="/static/play.png" mode=""></image>
           <text>6666播放量</text>
         </view>
         <view class="">
-          <image src="/static/logo.png" mode=""></image>
+          <image src="/static/pll-2.png" mode="" class="pll"></image>
           <text>7777条评论</text>
         </view>
       </view>
@@ -41,11 +41,11 @@
               <image src="/static/logo.png" mode=""></image>
               <view class="viedo-tip">
                 <view class="">
-                  <image src="/static/logo.png" mode=""></image>
+                  <image src="/static/xxrs.png" mode=""></image>
                   <text>6666</text>
                 </view>
                 <view class="">
-                  <image src="/static/logo.png" mode=""></image>
+                  <image src="/static/pll.png" mode=""></image>
                   <text>6666</text>
                 </view>
               </view>
@@ -72,7 +72,7 @@
     <!-- 底部 -->
     <view class="v-bottom">
       <view class="v-bottom-l" @tap="comment=true">
-        <image src="../../../static/logo.png" mode=""></image>
+        <image src="../../../static/pll-2.png" mode=""></image>
         <text>说些什么吧</text>
       </view>    
       <view class="v-bottom-r">
@@ -80,7 +80,7 @@
       </view>
     </view>
     <view class="v-bottom2">
-      <image src="../../../static/logo.png" mode="" class="fl"></image>
+      <image src="../../../static/vip-icon.png" mode="" class="fl"></image>
       <text class="fl">点击开通会员，免费观看所有往期录播</text>
       <image src="../../../static/huise-r.png" mode="" class="fr"></image>
     </view>
@@ -102,7 +102,7 @@
 export default {
   data() {
     return {
-      comment:true
+      comment:false
     };
   }
 };
@@ -165,6 +165,10 @@ export default {
       height: 22rpx;
       margin-right: 8rpx;
       margin-bottom: -1rpx;
+    }
+    .pll{
+      width: 22rpx;
+      height: 20rpx;
     }
   }
 }

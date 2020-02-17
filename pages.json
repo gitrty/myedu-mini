@@ -57,8 +57,19 @@
     }, {
       "path": "pages/user/problem/problem",
       "style": {}
+    }, {
+      "path": "pages/findgoodlessons/training/training",
+      "style": {}
     }
-  ],
+      ,{
+            "path" : "pages/user/orderdetails/orderdetails",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/logistics/logistics",
+            "style" : {}
+        }
+    ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -74,23 +85,23 @@
     "list": [{
       "pagePath": "pages/findgoodlessons/findgoodlessons",
       "text": "发现好课",
-      "iconPath": "static/tabbar/information.png",
-      "selectedIconPath": "static/tabbar/information_select.png"
+      "iconPath": "static/tabbar/ta1.png",
+      "selectedIconPath": "static/tabbar/ta1-sel.png"
     }, {
       "pagePath": "pages/learningcenter/learningcenter",
       "text": "学习中心",
-      "iconPath": "static/tabbar/itembank.png",
-      "selectedIconPath": "static/tabbar/itembank_select.png"
+      "iconPath": "static/tabbar/ta2.png",
+      "selectedIconPath": "static/tabbar/ta2-sel.png"
     }, {
       "pagePath": "pages/membership/membership",
       "text": "会员权益",
-      "iconPath": "static/tabbar/user.png",
-      "selectedIconPath": "static/tabbar/user_select.png"
+      "iconPath": "static/tabbar/ta3.png",
+      "selectedIconPath": "static/tabbar/ta3-sel.png"
     }, {
       "pagePath": "pages/user/user",
       "text": "我的",
-      "iconPath": "static/tabbar/user.png",
-      "selectedIconPath": "static/tabbar/user_select.png"
+      "iconPath": "static/tabbar/ta4.png",
+      "selectedIconPath": "static/tabbar/ta4-sel.png"
     }]
   },
   "condition": { //模式配置，仅开发期间生效
@@ -154,6 +165,18 @@
     }, {
       "name": "problem", //模式名称
       "path": "pages/user/problem/problem", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "training", //模式名称
+      "path": "pages/findgoodlessons/training/training", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "orderdetails", //模式名称
+      "path": "pages/user/orderdetails/orderdetails", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "logistics", //模式名称
+      "path": "pages/user/logistics/logistics", //启动页面，必选
       "query": "" //启动参数，在页面的onLoad函数里面得到。
     }]
   }

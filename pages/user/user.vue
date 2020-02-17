@@ -1,12 +1,12 @@
 <template>
   <view>
     <view class="user-top">
-      <image src="../../static/logo.png" mode="" class="user-bg"></image>
+      <image src="../../static/user-bg.png" mode="" class="user-bg"></image>
       <view class="user-mask">
         <view class="user-info">
           <image src="../../static/logo.png" mode=""></image>
           <!-- vip用户标志 -->
-          <image src="../../static/cs1.png" mode="" v-if="true"></image>
+          <image src="../../static/vip.png" mode="" v-if="true"></image>
           <text>用户名</text>
         </view>
         <view class="user-flex">
@@ -29,17 +29,17 @@
         </view>
         <view class="user-pos">
           <view class="user-pos-con" @tap="jump('/pages/user/mystatus/mystatus')">
-            <image src="../../static/logo.png" mode="" class="fl"></image>
+            <image src="../../static/xj-2.png" mode="" class="fl"></image>
             <text class="fl">我的学籍</text>
             <image src="../../static/huise-r.png" mode="" class="fr"></image>
           </view>
           <view class="user-pos-con" @tap="jump('/pages/user/problem/problem')">
-            <image src="../../static/logo.png" mode="" class="fl"></image>
+            <image src="../../static/wt-2.png" mode="" class="fl"></image>
             <text class="fl">常见问题</text>
             <image src="../../static/huise-r.png" mode="" class="fr"></image>
           </view>
           <button class="user-pos-con" open-type="contact">
-            <image src="../../static/logo.png" mode="" class="fl"></image>
+            <image src="../../static/kf-2.png" mode="" class="fl"></image>
             <text class="fl">联系客服/反馈</text>
             <image src="../../static/huise-r.png" mode="" class="fr"></image>
           </button>
@@ -79,7 +79,6 @@ export default {
     z-index: 2;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); // 删除
     .user-info {
       position: relative;
       margin-top: 140rpx;

@@ -22,15 +22,15 @@
       <view class="course-title">并发编程从入门到入魔</view>
       <view class="course-tip">
         <view class="course-tip-con">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/yxrs.png" mode=""></image>
           <text>6666人已学</text>
         </view>
         <view class="course-tip-con">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/pll-2.png" mode=""></image>
           <text>6666条评论</text>
         </view>
         <view class="course-tip-con">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/good.png" mode=""></image>
           <text>好评率100%</text>
         </view>
       </view>
@@ -66,7 +66,7 @@
         <!-- 进度条 -->
         <view class="vip-schedule-mid"><view class="" :style="{ width: 622 * 0.64 + 'rpx' }"></view></view>
         <view class="vip-schedule-bottom fr">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/yxx.png" mode=""></image>
           <text>已学习64%</text>
         </view>
       </view>
@@ -80,13 +80,13 @@
         <!-- 视频详情  -> false项为直播状态下的显示 -->
         <view class="syllabus-details" v-for="i of 2" :key="i" v-show="item.isOpen">
           <view class="syllabus-details-title">
-            <image src="../../../static/logo.png" mode=""></image>
+            <image :src="false?'../../../static/yes-play.png':'../../../static/no-play.png'" mode=""></image>
             <text :class="{ active: false }">[直播] 大数据之Impala简介</text>
           </view>
           <view class="syllabus-details-tip" v-if="true">1月14日 20:00</view>
-          <view class="syllabus-now" v-if="false">
+          <view class="syllabus-now" v-if="true">
             <text>直播中</text>
-            <image src="../../../static/logo.png" mode=""></image>
+            <image src="../../../static/playing.png" mode=""></image>
           </view>
         </view>
       </view>
@@ -129,21 +129,21 @@
     <view class="" v-if="!isVip">
       <view class="v-bottom">
         <view class="course-ico">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/kf.png" mode=""></image>
           <text>客服</text>
         </view>
         <view class="course-ico">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/sc.png" mode=""></image>
           <text>收藏</text>
         </view>
         <view class="course-ico">
-          <image src="../../../static/logo.png" mode=""></image>
+          <image src="../../../static/fx.png" mode=""></image>
           <text>分享</text>
         </view>
         <view class="v-bottom-r">立即购买</view>
       </view>
       <view class="v-bottom2">
-        <image src="../../../static/logo.png" mode="" class="fl"></image>
+        <image src="../../../static/vip-icon.png" mode="" class="fl"></image>
         <text class="fl">点击开通会员，免费观看所有往期录播</text>
         <image src="../../../static/huise-r.png" mode="" class="fr"></image>
       </view>
@@ -151,11 +151,11 @@
     <!-- 底部-已开通会员 -->
     <view class="vip-v-bottom" v-if="isVip">
       <view class="vip-v-bottom-l">
-        <image src="../../../static/logo.png" mode=""></image>
+        <image src="../../../static/kf.png" mode=""></image>
         <text>客服</text>
       </view>
       <view class="vip-v-bottom-l">
-        <image src="../../../static/logo.png" mode=""></image>
+        <image src="../../../static/fx.png" mode=""></image>
         <text>分享</text>
       </view>
     </view>
@@ -168,7 +168,7 @@
 export default {
   data() {
     return {
-      tabBar: 2,
+      tabBar: 1,
       // 课程大纲下拉控制
       syllabusList: [{ isOpen: true }, { isOpen: false }],
       // 是否为会员
@@ -359,6 +359,7 @@ export default {
       font-size: 24rpx;
       color: #000;
       > image {
+        border-radius: 50%;
         width: 56rpx;
         height: 56rpx;
         margin-right: 17rpx;

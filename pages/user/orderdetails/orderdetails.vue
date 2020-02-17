@@ -1,20 +1,30 @@
 <template>
   <view>
-    <toyoBar :title="'我的订单'"></toyoBar>
-    <view class="order" v-for="index of 4" :key="index" @tap="jump('/pages/user/orderdetails/orderdetails')">
+    <toyoBar :title="'订单详情'"></toyoBar>
+    <view class="order-details">
       <view class="training-video">
         <view class="training-video-l"><image src="/static/logo.png" mode=""></image></view>
-        <view class="t-video-text">
-          <view class="t-video-text-t">并发编程从入门到入魔</view>
-          <!-- 显示价格 -->
-          <view class="t-video-text-b" v-if="true"><text>￥199.00</text></view>
-        </view>
+        <view class="t-video-text"><view class="t-video-text-t">并发编程从入门到入魔</view></view>
       </view>
-      <view class="order-btns clearfix">
-        <view class="btn-rate fr" v-if="true" @tap="jump('/pages/findgoodlessons/evaluationcourse/evaluationcourse')">评价课程</view>
-        <view class="btn-rate fr" v-if="true" @tap="jump('/pages/user/logistics/logistics')">查看物流</view>
-        <view class="btn-cancel fr" v-if="true">取消报名</view>
-        <view class="btn-del fr" v-if="false">删除订单</view>
+      <view class="num-time">
+        <view class="num-time-1">订单编号 6666666666666</view>
+        <view class="">下单时间 2020-20-20 17:30</view>
+      </view>
+      <view class="order-price">
+        <view class="order-price-one">
+          <text>商品金额</text>
+          ￥199.00
+        </view>
+        <view class="order-price-two">
+          <text>实付款</text>
+          ￥199.00
+        </view>
+        <view class="order-btns clearfix">
+          <view class="btn-rate fr" v-if="true" @tap="jump('/pages/findgoodlessons/evaluationcourse/evaluationcourse')">评价课程</view>
+          <view class="btn-rate fr" v-if="true" @tap="jump('/pages/user/logistics/logistics')">查看物流</view>
+          <view class="btn-cancel fr" v-if="true">取消报名</view>
+          <view class="btn-del fr" v-if="false">删除订单</view>
+        </view>
       </view>
     </view>
   </view>
@@ -29,19 +39,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.order {
-  width: 686rpx;
-  height: 300rpx;
-  margin: 0 auto;
-  border-bottom: 2rpx solid #ececec;
-  padding-top: 40rpx;
+.order-details {
+  padding: 40rpx 32rpx 0;
 }
 .training-video {
   width: 686rpx;
-  height: 134rpx;
-  margin-bottom: 42rpx;
-  // background-color: gold;
+  height: 174rpx;
   display: flex;
+  border-bottom: 2rpx solid #ececec;
   .training-video-l {
     position: relative;
     > image {
@@ -103,6 +108,40 @@ export default {
         margin-right: 8rpx;
         margin-bottom: -1rpx;
       }
+    }
+  }
+}
+.num-time {
+  width: 686rpx;
+  height: 170rpx;
+  border-bottom: 2rpx solid #ececec;
+  font-size: 28rpx;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .num-time-1 {
+    margin-bottom: 20rpx;
+  }
+}
+.order-price {
+  width: 686rpx;
+  height: 220rpx;
+  font-size: 28rpx;
+  padding-top: 40rpx;
+  .order-price-one {
+    color: #666;
+    text {
+      display: inline-block;
+      width: 130rpx;
+    }
+  }
+  .order-price-two {
+    margin-top: 18rpx;
+    color: #000;
+    text {
+      display: inline-block;
+      width: 130rpx;
     }
   }
 }

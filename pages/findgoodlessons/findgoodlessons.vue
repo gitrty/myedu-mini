@@ -4,7 +4,7 @@
     <view class="top-bar" :style="{'height':112+pTop+'rpx','background-color':'#fff'}">
       <view class="" ></view>
       <view class="top-select" :style="{'margin-top':pTop+'rpx'}" @tap="jump('/pages/findgoodlessons/select/select')">
-        <image src="../../static/logo.png" mode=""></image>
+        <image src="../../static/ss-2.png" mode=""></image>
         <text>人工智能</text>
       </view>
     </view>
@@ -32,7 +32,7 @@
       </view>
       <!-- 训练营 -->
       <view class="training">
-        训练营
+        <image src="../../static/xly.png" mode=""></image>
       </view>
       <!-- 训练营视频 -->
       <view class="training-content">
@@ -45,11 +45,11 @@
                     <image src="../../static/logo.png" mode=""></image>
                     <view class="viedo-tip">
                       <view class="">
-                        <image src="../../static/logo.png" mode=""></image>
+                        <image src="../../static/xxrs.png" mode=""></image>
                         <text>6666</text>
                       </view> 
                       <view class="">
-                        <image src="../../static/logo.png" mode=""></image>
+                        <image src="../../static/pll.png" mode=""></image>
                          <text>6666</text>
                       </view>
                     </view>
@@ -112,7 +112,7 @@
       <!-- 课程预告 -->
       <view class="notice">
         <view class="notice-top">
-          <image src="../../static/logo.png" mode=""></image>
+          <image src="../../static/kcyg.png" mode=""></image>
           <text>课程预告</text>
         </view>
         <view class="notice-con" v-for="index of 3" :key="index">
@@ -129,25 +129,35 @@
               并发编程从入门到入魔
             </view>
            <view class="">
-              <image src="../../static/logo.png" mode=""></image>
+              <image src="../../static/gz.png" mode=""></image>
               <text>1000人关注</text>
             </view>
           </view>
         </view>
       </view>
       <!-- 课程预告 - 查看全部 -->
-      <view class="notice-every">
+      <view class="notice-every" @tap="jump('/pages/findgoodlessons/training/training')">
         查看全部
       </view>
  
       <!-- 精品小课 -->
       <view class="quality">
-        精品小课
+        <image src="../../static/jpxk.png" mode=""></image>
       </view>
       <!-- 精品小课视频 -->
       <view class="quality-content clearfix">
         <view class="quality-content-con fl" v-for="index of 4" :key="index">
           <image src="../../static/logo.png" mode=""></image>
+          <view class="viedo-tip">
+            <view class="">
+              <image src="../../static/xxrs.png" mode=""></image>
+              <text>6666</text>
+            </view> 
+            <view class="">
+              <image src="../../static/pll.png" mode=""></image>
+               <text>6666</text>
+            </view>
+          </view>
           <view class="quality-tit">
             程序员为什么这么累?30岁不一定就是槛...
           </view>
@@ -168,30 +178,30 @@
       <!-- 滑动区域 -->
       <view class="t-r-top">
         <movable-area :style="{height:'120rpx'}">
-            <movable-view direction="all" :style="{width:'350rpx',height:'120rpx'}" inertia="true">
+            <movable-view direction="all" :style="{width:'200rpx',height:'120rpx'}" inertia="true">
               <view class="movable-wid">
                 <view class="choice-kc fl" :class="{'c-active':choiceKc===0}" @tap="choiceKc=0">
-                  <image :src="choiceKc===0?'../../static/logo.png':'../../static/zt-qt.png'" mode=""></image>
+                  <image :src="choiceKc===0?'../../static/eve-sel.png':'../../static/eve.png'" mode=""></image>
                   <text>全部录播</text>
                 </view> 
                 <view class="choice-kc fl" :class="{'c-active':choiceKc===1}" @tap="choiceKc=1">
-                  <image :src="choiceKc===1?'../../static/logo.png':'../../static/zt-java.png'"></image>
+                  <image :src="choiceKc===1?'../../static/java-sel.png':'../../static/JAVA.png'"></image>
                   <text>JAVA架构</text>
                 </view> 
                 <view class="choice-kc fl" :class="{'c-active':choiceKc===2}" @tap="choiceKc=2">
-                  <image :src="choiceKc===2?'../../static/logo.png':'../../static/zt-dsj.png'"></image>
+                  <image :src="choiceKc===2?'../../static/dsj-sel.png':'../../static/dsj.png'"></image>
                   <text>大数据</text>
                 </view> 
                 <view class="choice-kc fl" :class="{'c-active':choiceKc===3}" @tap="choiceKc=3">
-                  <image :src="choiceKc===3?'../../static/logo.png':'../../static/zt-py.png'"></image>
+                  <image :src="choiceKc===3?'../../static/py-sel.png':'../../static/py.png'"></image>
                   <text>人工智能</text>
                 </view> 
-                <view class="choice-kc fl" :class="{'c-active':choiceKc===4}" @tap="choiceKc=4">
+           <!--     <view class="choice-kc fl" :class="{'c-active':choiceKc===4}" @tap="choiceKc=4">
                   <image :src="choiceKc===4?'../../static/logo.png':'../../static/zt-jg.png'"></image>
                   <text>架构</text>
-                </view>   
+                </view>   -->
                 <view class="choice-kc fl" :class="{'c-active':choiceKc===5}" @tap="choiceKc=5">
-                  <image :src="choiceKc===5?'../../static/logo.png':'../../static/zj-qd.png'"></image>
+                  <image :src="choiceKc===5?'../../static/web-sel.png':'../../static/web.png'"></image>
                   <text>WEB前端</text>  
                 </view>
               </view>
@@ -214,11 +224,11 @@
           </view>
           <view class="video-icon-num">
             <view class="">
-              <image src="../../static/logo.png" mode=""></image>
+              <image src="../../static/play.png" mode=""></image>
               <text>6666</text>
             </view>
             <view class="">
-              <image src="../../static/logo.png" mode=""></image>
+              <image src="../../static/pll-2.png" mode="" class="pll"></image>
               <text>7777</text>
             </view>
           </view>
@@ -233,7 +243,7 @@
 export default {
   data() {
     return {
-      tabBar: true,  // 为你推荐/往期录播切换
+      tabBar: false,  // 为你推荐/往期录播切换
       choiceKc: 0,  // 录播分类切换
       pTop:0
     };
@@ -342,6 +352,11 @@ export default {
   text-align: center;
   font-size: 40rpx;
   color: #252525;
+  >image{
+    width: 170rpx;
+    height: 70rpx;
+    margin-left: 30rpx;
+  }
 }
 .training-content{
   height: 486rpx;
@@ -498,6 +513,11 @@ export default {
   font-size: 40rpx;
   color: #252525;
   text-align: center;
+  >image{
+    width: 190rpx;
+    height: 70rpx;
+    margin-left: 30rpx;
+  }
 }
 
 .quality-content{
@@ -506,6 +526,7 @@ export default {
     margin-right:18rpx ;
   }
   .quality-content-con{
+    position: relative;
     width: 334rpx;
     margin-bottom: 42rpx;
      >image{
@@ -527,6 +548,28 @@ export default {
       .no-mf{
         font-size: 26rpx;
         color: #f18300;
+      }
+    }
+    .viedo-tip{
+      position: absolute;
+      top: 138rpx;
+      width: 334rpx;
+      height: 48rpx;
+      background-color: rgba(0,0,0,.14);
+      display: flex;
+      padding: 0 16rpx;
+      >view{
+        // flex:1;
+        margin-right: 20rpx;
+        >image{
+          width: 22rpx;
+          height: 20rpx;
+          margin-right: 7rpx;
+        }
+        >text{
+          font-size: 24rpx;
+          color: #fff;
+        }
       }
     }
   }
@@ -615,6 +658,10 @@ export default {
         height: 22rpx;
         margin-right: 8rpx;
         margin-bottom: -1rpx;
+      }
+      .pll{
+        width: 22rpx;
+        height: 21rpx;
       }
     }
   }

@@ -7,8 +7,8 @@
         <view class="t-video-text">
           <view class="t-video-text-t">并发编程从入门到入魔</view>
           <view class="t-video-tip">
-            <image src="/static/logo.png" mode=""></image>
-            <text>已学习64%</text>
+            <image src="/static/gkz.png" mode="" class="gkz"></image>
+            <text>观看至64%</text>
           </view>
         </view>
       </view>
@@ -62,6 +62,10 @@
         height: 24rpx;
         margin-bottom: -1rpx;
         margin-right: 8rpx;
+      }
+      .gkz{
+        width: 26rpx;
+        height: 20rpx;
       }
     }
   }

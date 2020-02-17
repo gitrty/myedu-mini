@@ -15,11 +15,11 @@
           <!-- tab1 - 课程 -->
           <view class="viedo-tip" v-if="tabViedo">
             <view class="">
-              <image src="/static/logo.png" mode=""></image>
+              <image src="/static/xxrs.png" mode=""></image>
               <text>6666</text>
             </view>
             <view class="">
-              <image src="/static/logo.png" mode=""></image>
+              <image src="/static/pll.png" mode=""></image>
               <text>6666</text>
             </view>
           </view>
@@ -36,11 +36,11 @@
           <!-- tab2 - 显示播放量及评论数 -->
           <view class="video-icon-num" v-if="!tabViedo">
             <view class="">
-              <image src="/static/logo.png" mode=""></image>
+              <image src="/static/play.png" mode=""></image>
               <text>6666</text>
             </view>
             <view class="">
-              <image src="/static/logo.png" mode=""></image>
+              <image src="/static/pll-2.png" mode="" class="pll"></image>
               <text>7777</text>
             </view>
           </view>
@@ -165,6 +165,10 @@ export default {
         height: 22rpx;
         margin-right: 8rpx;
         margin-bottom: -1rpx;
+      }
+      .pll{
+        width: 22rpx;
+        height: 21rpx;
       }
     }
   }

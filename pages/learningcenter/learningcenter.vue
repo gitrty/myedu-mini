@@ -4,7 +4,7 @@
     <view class="top-bar" :style="{'height':112+pTop+'rpx','background-color':'#fff'}">
       <view class="" ></view>
       <view class="top-select" :style="{'margin-top':pTop+'rpx'}" @tap="jump('/pages/findgoodlessons/select/select')">
-        <image src="../../static/logo.png" mode=""></image>
+        <image src="../../static/ss-2.png" mode=""></image>
         <text>人工智能</text>
       </view>
     </view>
@@ -27,14 +27,14 @@
             并发编程从入门到入魔
           </view>
           <view class="t-video-tip">
-            <image src="../../static/logo.png" mode=""></image>
+            <image src="../../static/yxx.png" mode=""></image>
             <text>已学习64%</text>
           </view>
         </view>
         <!-- 直播状态 -->
         <view class="learning-now" v-if="true">
           <text>直播中</text>
-          <image src="../../static/logo.png" mode=""></image>
+          <image src="../../static/play-fff.png" mode=""></image>
         </view>
       </view>
     </view>
@@ -57,8 +57,8 @@
             并发编程从入门到入魔
           </view>
           <view class="t-video-tip">
-            <image src="../../static/logo.png" mode=""></image>
-            <text>已学习64%</text>
+            <image src="../../static/gkz.png" mode="" class="gkz"></image>
+            <text>观看至64%</text>
           </view>
         </view>
       </view>
@@ -167,6 +167,10 @@
          height: 24rpx;
          margin-bottom: -1rpx;
          margin-right: 8rpx;
+       }
+       .gkz{
+         width: 26rpx;
+         height: 20rpx;
        }
      }
    }
