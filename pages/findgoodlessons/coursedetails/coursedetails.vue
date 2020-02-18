@@ -80,7 +80,7 @@
         <!-- 视频详情  -> false项为直播状态下的显示 -->
         <view class="syllabus-details" v-for="i of 2" :key="i" v-show="item.isOpen">
           <view class="syllabus-details-title">
-            <image :src="false?'../../../static/yes-play.png':'../../../static/no-play.png'" mode=""></image>
+            <image :src="false ? '../../../static/yes-play.png' : '../../../static/no-play.png'" mode=""></image>
             <text :class="{ active: false }">[直播] 大数据之Impala简介</text>
           </view>
           <view class="syllabus-details-tip" v-if="true">1月14日 20:00</view>
@@ -136,11 +136,11 @@
           <image src="../../../static/sc.png" mode=""></image>
           <text>收藏</text>
         </view>
-        <view class="course-ico">
+        <view class="course-ico" @tap="fx">
           <image src="../../../static/fx.png" mode=""></image>
           <text>分享</text>
         </view>
-        <view class="v-bottom-r">立即购买</view>
+        <view class="v-bottom-r" @tap="jump('/pages/findgoodlessons/purchase/purchase')">立即购买</view>
       </view>
       <view class="v-bottom2">
         <image src="../../../static/vip-icon.png" mode="" class="fl"></image>
@@ -154,13 +154,69 @@
         <image src="../../../static/kf.png" mode=""></image>
         <text>客服</text>
       </view>
-      <view class="vip-v-bottom-l">
+      <view class="vip-v-bottom-l" @tap="fx">
         <image src="../../../static/fx.png" mode=""></image>
         <text>分享</text>
       </view>
     </view>
     <view class="" style="height: 170rpx;" v-if="!isVip"></view>
     <view class="" style="height: 98rpx;" v-if="isVip"></view>
+    <!-- 分享海报 -->
+    <view class="mask" v-show="fxMask">
+      <view class="fx-mask" @tap="fxMask = !fxMask"></view>
+      <view class="mask-container">
+        <view class="mask-esc"><image src="../../../static/close.png" mode="" @tap="fxMask = false"></image></view>
+        <view class="mask-hb">
+          <view class="mask-hb-con">
+            <image src="../../../static/fx-bg.png" mode="" class="hb-bg"></image>
+            <image src="../../../static/logo.png" mode="" class="hb-user"></image>
+            <view class="hb-usertxt">XXXXX邀请你来咕泡学习</view>
+            <view class="hb-container">
+              <image src="../../../static/logo.png" mode="" class="kc-details"></image>
+              <view class="kc-one">
+                并发编程从入门到入魔
+              </view>
+              <view class="kc-two">
+                <view class="">
+                  <image src="../../../static/yxrs.png" mode=""></image>
+                  <text>666人已学</text>
+                </view>   
+                <view class="">
+                  <image src="../../../static/yxrs.png" mode=""></image>
+                  <text>666条评论</text>
+                </view>   
+                <view class="">
+                  <image src="../../../static/yxrs.png" mode=""></image>
+                  <text>好评率100%</text>
+                </view>
+              </view>
+              <view class="kc-three">
+                ￥199.00
+              </view>
+            </view>
+            <view class="kc-bottom">
+              <image src="../../../static/logo.png" mode="" class="ewm"></image>
+              <view class="fx-text">
+                <view class="">长按小程序码查看详情</view>
+                <view class="">分享自[咕泡学院]</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="mask-btns">
+          <view class="">
+            <image src="../../../static/wx.png" mode="" class="wx"></image>
+            <text>分享至好友</text>
+          </view>
+          <view class="" @tap="downloadImage">
+            <image src="../../../static/hb.png" mode=""></image>
+            <text>保存海报</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 绘制海报 -->
+    <canvas style="width: 750rpx; height: 1334rpx;position:fixed ; background-color: red;" canvas-id="myCanvas"></canvas>
   </view>
 </template>
 
@@ -168,17 +224,145 @@
 export default {
   data() {
     return {
-      tabBar: 1,
+      tabBar: 0,
       // 课程大纲下拉控制
       syllabusList: [{ isOpen: true }, { isOpen: false }],
       // 是否为会员
-      isVip: false
+      isVip: false,
+      // 分享海报页面
+      fxMask: true,
+      // 生成海报路径
+      fxImage: ''
     };
+  },
+  onLoad() {
+    this.createImage();
   },
   methods: {
     // 课程大纲下拉/收起
     syllabusTab(index) {
       this.syllabusList[index].isOpen = !this.syllabusList[index].isOpen;
+    },
+    fx() {
+      this.fxMask = true;
+      uni.canvasToTempFilePath(
+        {
+          x: 0,
+          y: 0,
+          width: 375,
+          height: 667,
+          canvasId: 'myCanvas',
+          fileType: 'jpg',
+          success: function(res) {
+            // 在H5平台下，tempFilePath 为 base64
+            console.log(res.tempFilePath);
+            this.fxImage = res.tempFilePath;
+            console.info(typeof this.fxImage);
+          }
+        },
+        this
+      );
+      console.info(1);
+    },
+    createImage() {
+      let context = uni.createCanvasContext('myCanvas');
+      // 1 - 背景图片
+      context.drawImage('/static/fx-bg.png', 0, 0, 375, 252);
+
+      // 2 - 用户头像
+      context.save(); // 先保存状态 已便于画完圆再用
+      context.beginPath(); //开始绘制
+      //先画个圆
+      context.arc(187, 70, 34, 0, Math.PI * 2);
+      context.setFillStyle('#ffffff');
+      context.fill(); //保证图片无bug填充
+      context.clip(); //画了圆 再剪切 原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
+      context.drawImage('/static/logo.png', 153, 36, 68, 68); // 推进去图片
+      context.restore();
+
+      // 3 - XXX邀请你来咕泡学习
+      context.setFillStyle('#fff');
+      context.setFontSize(20);
+      context.textAlign = 'center';
+      context.fillText('XXXXXXXXX邀请你来咕泡学习', 186, 140);
+
+      // 4 - 课程图片
+      context.fillStyle = '#f8f8f8'; //fillStyle设置填充颜色
+      context.strokeStyle = '#f8f8f8'; //strokeStyle设置边框颜色
+      context.fillRect(16, 172, 343, 308);
+      context.strokeRect(16, 172, 343, 308);
+      context.drawImage('/static/logo.png', 16, 172, 343, 190);
+
+      // 5 - 课程介绍
+      context.textAlign = 'left';
+      context.setFillStyle('#252525');
+      context.setFontSize(20);
+      context.fillText('并发编程从入门到入魔', 35, 390);
+
+      context.setFillStyle('#666');
+      context.setFontSize(13);
+      context.drawImage('/static/yxrs.png', 36, 406, 9, 9);
+      context.fillText('6666人已学', 48, 415);
+      context.drawImage('/static/pll-2.png', 140, 406, 9, 9);
+      context.fillText('6666条评论', 152, 415);
+      context.drawImage('/static/good.png', 244, 406, 9, 9);
+      context.fillText('好评率100%', 256, 415);
+
+      context.setFillStyle('#f18300');
+      context.setFontSize(16);
+      context.fillText('￥199.00', 36, 440);
+
+      // 6 - 小程序码
+      context.drawImage('/static/logo.png', 45, 520, 89, 89);
+
+      // 绘制矩形并填充背景
+      context.fillStyle = '#f8f8f8'; //fillStyle设置填充颜色
+      context.strokeStyle = '#f8f8f8'; //strokeStyle设置边框颜色
+      context.fillRect(144, 532, 190, 64);
+      context.strokeRect(144, 532, 190, 64);
+
+      context.setFillStyle('#999');
+      context.setFontSize(15);
+      context.fillText('长按小程序码查看详情', 160, 560);
+      context.fillText('分享自[咕泡学院]', 160, 584);
+
+      // 7 - 完成绘制
+      context.draw();
+    },
+    // 下载海报
+    downloadImage() {
+      let _this = this;
+      // 将 canvas 绘制的海报生成图片
+      uni.canvasToTempFilePath(
+        {
+          x: 0,
+          y: 0,
+          width: 375,
+          height: 667,
+          // destWidth: 200,
+          // destHeight: 200,
+          canvasId: 'myCanvas',
+          fileType: 'jpg',
+          success: function(res) {
+            // 在H5平台下，tempFilePath 为 base64
+            console.log(res.tempFilePath);
+            uni.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success: function() {
+                _this.showToast('保存成功');
+              }
+            });
+
+            // uni.previewImage({
+            //   urls: [res.tempFilePath],
+            //   success() {
+            //     console.info('预览成功');
+            //   }
+            // });
+          }
+        },
+        this
+      );
     }
   },
   onShow() {
@@ -606,6 +790,177 @@ export default {
     width: 40rpx;
     height: 40rpx;
     margin-left: 110rpx;
+  }
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.3);
+  left: 0;
+  top: 0;
+  .fx-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+  .mask-container {
+    width: 100%;
+    height: 872rpx;
+    background-color: #fff;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    border-radius: 48rpx 48rpx 0 0;
+    .mask-esc {
+      width: 24rpx;
+      height: 24rpx;
+      position: absolute;
+      top: 40rpx;
+      right: 40rpx;
+      > image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+.mask-btns {
+  height: 98rpx;
+  width: 750rpx;
+  position: absolute;
+  bottom: 0;
+  border-top: 2rpx solid #f4f4f4;
+  display: flex;
+  line-height: 64rpx;
+  font-size: 32rpx;
+  color: #252525;
+  align-items: center;
+  > view {
+    height: 64rpx;
+    flex: 1;
+    text-align: center;
+    > image {
+      width: 28rpx;
+      height: 22rpx;
+      margin-right: 8rpx;
+    }
+    .wx {
+      width: 40rpx;
+      height: 40rpx;
+      margin-bottom: -8rpx;
+    }
+  }
+  > view:nth-of-type(1) {
+    border-right: 2rpx solid #f4f4f4;
+  }
+}
+.mask-hb {
+  width: 440rpx;
+  height: 726rpx;
+  margin: 44rpx auto 0;
+  padding: 20rpx;
+  > image {
+    width: 100%;
+    height: 100%;
+  }
+}
+.mask-hb-con {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 24rpx rgba(0,0,0,.08);
+  border-radius: 24rpx;
+  position: relative;
+  .hb-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 250rpx;
+    border-radius: 24rpx 24rpx 0 0;
+  }
+  .hb-user {
+    position: absolute;
+    z-index: 3;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -30rpx;
+    top: 46rpx;
+  }
+  .hb-usertxt {
+    position: relative;
+    top: 120rpx;
+    z-index: 3;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+  }
+  .hb-container {
+    position: absolute;
+    z-index: 3;
+    width: 90%;
+    height: 300rpx;
+    top: 170rpx;
+    box-shadow: 0 0 24rpx rgba(0,0,0,.08);
+    left:20rpx; 
+    .kc-details {
+      width: 100%;
+      height: 190rpx;
+    }
+    .kc-one{
+      padding: 0 10rpx;
+      font-size: 22rpx;
+    }
+    .kc-two{
+      margin: 4rpx 0 8rpx;
+      padding: 0 10rpx;
+      font-size: 18rpx;
+      display: flex;
+      >view{
+        margin-right: 13rpx;
+        color: #666;
+      }
+      image{
+        width: 14rpx;
+        height: 14rpx;
+        margin-right: 4rpx;
+      }
+    }
+    .kc-three{
+      padding: 0 10rpx;
+      font-size: 22rpx;
+      color: #f18300;
+    }
+  }
+}
+.kc-bottom{
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  z-index: 3;
+  bottom: 50rpx;
+  .ewm{
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 42rpx;
+  }
+  .fx-text{
+    position: absolute;
+    top: 20rpx;
+    right: 0rpx;
+    width: 220rpx;
+    height: 70rpx;
+    background-color: #f8f8f8;
+    right: 24rpx;
+    padding: 10rpx 15rpx;
+    font-size: 19rpx;
+    color: #999;
   }
 }
 </style>

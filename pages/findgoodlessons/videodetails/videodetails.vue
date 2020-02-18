@@ -360,7 +360,6 @@ scroll-view {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: ;
   }
   .comment-container-com{
     width: 750rpx;

@@ -60,16 +60,17 @@
     }, {
       "path": "pages/findgoodlessons/training/training",
       "style": {}
+    }, {
+      "path": "pages/user/orderdetails/orderdetails",
+      "style": {}
+    }, {
+      "path": "pages/user/logistics/logistics",
+      "style": {}
+    }, {
+      "path": "pages/findgoodlessons/purchase/purchase",
+      "style": {}
     }
-      ,{
-            "path" : "pages/user/orderdetails/orderdetails",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/user/logistics/logistics",
-            "style" : {}
-        }
-    ],
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -177,6 +178,10 @@
     }, {
       "name": "logistics", //模式名称
       "path": "pages/user/logistics/logistics", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "purchase", //模式名称
+      "path": "pages/findgoodlessons/purchase/purchase", //启动页面，必选
       "query": "" //启动参数，在页面的onLoad函数里面得到。
     }]
   }
