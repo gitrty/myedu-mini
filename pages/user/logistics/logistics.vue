@@ -11,6 +11,18 @@
         <view class="">下单时间 2020-20-20 17:30</view>
       </view>
     </view>
+    <view class="logistics-gz">
+      <view class="logistics-gz-tit">
+        物流跟踪
+      </view> 
+      <view class="logistics-gz-con">
+       <text>中通快递</text>
+       <text>66666666666666666666666</text>
+      </view>
+    </view>
+    <view class="del-logistics">
+      删除订单
+    </view>
   </view>
 </template>
 
@@ -107,5 +119,33 @@ export default {
     .num-time-1 {
       margin-bottom: 20rpx;
     }
+  }
+  .logistics-gz{
+    padding: 0 32rpx;
+    margin-top: 30rpx;
+    .logistics-gz-tit{
+      font-size: 30rpx;
+      color: #252525;
+    }
+    .logistics-gz-con{
+      font-size: 28rpx;
+      color: #333;
+      margin-top: 17rpx;
+      >text{
+        margin-right: 20rpx;
+      }
+    }
+  }
+  .del-logistics{
+    width: 152rpx;
+    height: 56rpx;
+    border-radius: 38rpx;
+    border: 2rpx solid #c7c7c9;
+    line-height: 52rpx;
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+    margin-left: 586rpx;
   }
 </style>

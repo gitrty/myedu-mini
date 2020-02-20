@@ -3,7 +3,7 @@
     <view class="user-top">
       <image src="../../static/user-bg.png" mode="" class="user-bg"></image>
       <view class="user-mask">
-        <view class="user-info">
+        <view class="user-info" @tap="jump('/pages/user/userinfo/userinfo')">
           <image src="../../static/logo.png" mode=""></image>
           <!-- vip用户标志 -->
           <image src="../../static/vip.png" mode="" v-if="true"></image>

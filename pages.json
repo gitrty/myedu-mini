@@ -69,16 +69,20 @@
     }, {
       "path": "pages/findgoodlessons/purchase/purchase",
       "style": {}
+    }, {
+      "path": "pages/membership/bookdetails/bookdetails",
+      "style": {}
+    }, {
+      "path": "pages/membership/receivebook/receivebook",
+      "style": {}
+    }, {
+      "path": "pages/user/userinfo/userinfo",
+      "style": {}
+    }, {
+      "path": "pages/user/Admissionmanual/Admissionmanual",
+      "style": {}
     }
-      ,{
-            "path" : "pages/membership/bookdetails/bookdetails",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/membership/receivebook/receivebook",
-            "style" : {}
-        }
-    ],
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -202,6 +206,14 @@
     }, {
       "name": "receivebook", //模式名称
       "path": "pages/membership/receivebook/receivebook", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "userinfo", //模式名称
+      "path": "pages/user/userinfo/userinfo", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "Admissionmanual", //模式名称
+      "path": "pages/user/Admissionmanual/Admissionmanual", //启动页面，必选
       "query": "" //启动参数，在页面的onLoad函数里面得到。
     }]
   }
