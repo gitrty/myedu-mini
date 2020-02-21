@@ -7,50 +7,55 @@
       <input type="text" value="" placeholder="人工智能" @confirm="select" />
       <text @tap="navigateBack()">取消</text>
     </view>
-    <view class="result-title">已为你搜索 12 条相关内容</view>
-    <view class="result-viedo">
-      <view class="training-video" v-for="index of 10" :key="index">
-        <view class="training-video-l">
-          <image src="/static/logo.png" mode=""></image>
-          <!-- tab1 - 课程 -->
-          <view class="viedo-tip" v-if="tabViedo">
-            <view class="">
-              <image src="/static/xxrs.png" mode=""></image>
-              <text>6666</text>
-            </view>
-            <view class="">
-              <image src="/static/pll.png" mode=""></image>
-              <text>6666</text>
-            </view>
-          </view>
-          <!-- tab1 - 视频 -->
-          <view class="video-free" v-if="index == 1&&!tabViedo" >免费看</view>
-        </view>
-        <view class="t-video-text">
-          <view class="t-video-text-t">并发编程从入门到入魔并发编程从入门到入魔</view>
-          <!-- tab2 - 显示价格 -->
-          <view class="t-video-text-b" v-if="tabViedo">
-            <text>￥199.00</text>
-            <!-- <text>￥199.00</text>  -->
-          </view>
-          <!-- tab2 - 显示播放量及评论数 -->
-          <view class="video-icon-num" v-if="!tabViedo">
-            <view class="">
-              <image src="/static/play.png" mode=""></image>
-              <text>6666</text>
-            </view>
-            <view class="">
-              <image src="/static/pll-2.png" mode="" class="pll"></image>
-              <text>7777</text>
-            </view>
-          </view>
-          <!-- 显示开启时间 -->
-          <view class="t-video-text-time" v-if="false">
+    <view class="" v-if="false">
+      <view class="result-title">已为你搜索 12 条相关内容</view>
+      <view class="result-viedo">
+        <view class="training-video" v-for="index of 10" :key="index">
+          <view class="training-video-l">
             <image src="/static/logo.png" mode=""></image>
-            <text>1月4日开启 剩余12天</text>
+            <!-- tab1 - 课程 -->
+            <view class="viedo-tip" v-if="tabViedo">
+              <view class="">
+                <image src="/static/xxrs.png" mode=""></image>
+                <text>6666</text>
+              </view>
+              <view class="">
+                <image src="/static/pll.png" mode=""></image>
+                <text>6666</text>
+              </view>
+            </view>
+            <!-- tab1 - 视频 -->
+            <view class="video-free" v-if="index == 1 && !tabViedo">免费看</view>
+          </view>
+          <view class="t-video-text">
+            <view class="t-video-text-t">并发编程从入门到入魔并发编程从入门到入魔</view>
+            <!-- tab2 - 显示价格 -->
+            <view class="t-video-text-b" v-if="tabViedo">
+              <text>￥199.00</text>
+              <!-- <text>￥199.00</text>  -->
+            </view>
+            <!-- tab2 - 显示播放量及评论数 -->
+            <view class="video-icon-num" v-if="!tabViedo">
+              <view class="">
+                <image src="/static/play.png" mode=""></image>
+                <text>6666</text>
+              </view>
+              <view class="">
+                <image src="/static/pll-2.png" mode="" class="pll"></image>
+                <text>7777</text>
+              </view>
+            </view>
+            <!-- 显示开启时间 -->
+            <view class="t-video-text-time" v-if="false">
+              <image src="/static/logo.png" mode=""></image>
+              <text>1月4日开启 剩余12天</text>
+            </view>
           </view>
         </view>
       </view>
+    </view>
+     <!-- 无搜索结果 -->
+     <toyoNoInfo :text="'没有搜到相关结果'" :imgSrc="'/static/z-wss.png'" v-if="true"></toyoNoInfo>
     </view>
   </view>
 </template>
@@ -61,6 +66,11 @@ export default {
     return {
       tabViedo: false // 视频/课程 (测试使用)
     };
+  },
+  methods: {
+    select() {
+      console.info(1);
+    }
   }
 };
 </script>
@@ -151,22 +161,22 @@ export default {
       }
     }
   }
-  .video-icon-num{
+  .video-icon-num {
     position: absolute;
     bottom: 8rpx;
     left: 265rpx;
     font-size: 24rpx;
     color: #999;
-    >view{
+    > view {
       float: left;
       margin-right: 31rpx;
-      >image{
+      > image {
         width: 18rpx;
         height: 22rpx;
         margin-right: 8rpx;
         margin-bottom: -1rpx;
       }
-      .pll{
+      .pll {
         width: 22rpx;
         height: 21rpx;
       }

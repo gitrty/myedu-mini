@@ -55,6 +55,7 @@ button::after {
 }
 
 button {
+  line-height: none;
   background-color: #fff;
   border-radius:0;
   padding: 0;

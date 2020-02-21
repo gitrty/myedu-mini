@@ -1,5 +1,5 @@
 <template>
-  <view :style="{height:comment?'100%':'auto',overflow:comment?'hidden':'visible'}">
+  <view :style="{ height: comment ? '100%' : 'auto', overflow: comment ? 'hidden' : 'visible' }">
     <toyoBar :title="'视频详情'"></toyoBar>
     <!-- 视频图片 -->
     <view class="viedo-image">
@@ -59,7 +59,7 @@
     <!-- 相关评论 -->
     <view class="comment">
       <view class="comment-title">相关评论 66</view>
-      <view class="comment-con" v-for="index of 3" :key="index">
+      <view class="comment-con" v-for="index of 3" :key="index" v-if="false">
         <view class="comment-con-t">
           <image src="../../../static/logo.png" mode="" class="fl"></image>
           <view class="fl">用户名</view>
@@ -68,18 +68,21 @@
         <view class="comment-con-b">课程知识点丰富，老师也幽默有趣课程知识点丰富，老师也幽默有趣</view>
         <view class="title-hr"></view>
       </view>
+      <!-- 无评论 -->
+      <view class="" v-if="true">
+        <toyoNoInfo :text="'暂无相关评论'" :imgSrc="'/static/z-wpl.png'" :pTop="80"></toyoNoInfo>
+        <view class="wpl-btn" @tap="comment=true">立即评论</view>
+      </view>
     </view>
     <!-- 底部 -->
     <view class="v-bottom">
-      <view class="v-bottom-l" @tap="comment=true">
+      <view class="v-bottom-l" @tap="comment = true">
         <image src="../../../static/pll-2.png" mode=""></image>
         <text>说些什么吧</text>
-      </view>    
-      <view class="v-bottom-r">
-        分享至好友
       </view>
+      <button class="v-bottom-r" data-name="shareBtn" open-type="share">分享至好友</button>
     </view>
-    <view class="v-bottom2">
+    <view class="v-bottom2" @tap="jump('/pages/membership/membership')">
       <image src="../../../static/vip-icon.png" mode="" class="fl"></image>
       <text class="fl">点击开通会员，免费观看所有往期录播</text>
       <image src="../../../static/huise-r.png" mode="" class="fr"></image>
@@ -87,12 +90,10 @@
     <view class="" style="height: 170rpx;"></view>
     <!-- 评论框 -->
     <view class="comment-container" v-show="comment">
-      <view class="comment-mask" @tap="comment=false"></view>
+      <view class="comment-mask" @tap="comment = false"></view>
       <view class="comment-container-com">
-        <textarea value="" placeholder="说些什么吧" fixed/>
-        <view class="comment-submit">
-          提交评论
-        </view>
+        <textarea value="" placeholder="说些什么吧" fixed />
+        <view class="comment-submit">提交评论</view>
       </view>
     </view>
   </view>
@@ -102,7 +103,7 @@
 export default {
   data() {
     return {
-      comment:false
+      comment: false
     };
   }
 };
@@ -166,7 +167,7 @@ export default {
       margin-right: 8rpx;
       margin-bottom: -1rpx;
     }
-    .pll{
+    .pll {
       width: 22rpx;
       height: 20rpx;
     }
@@ -299,7 +300,7 @@ scroll-view {
   justify-content: space-between;
   line-height: 80rpx;
   text-align: center;
-  .v-bottom-l{
+  .v-bottom-l {
     background-color: #f4f4f4;
     width: 355rpx;
     height: 80rpx;
@@ -307,15 +308,15 @@ scroll-view {
     color: #999;
     font-size: 28rpx;
     text-align: left;
-    >image{
+    > image {
       margin-left: 26rpx;
       margin-right: 10rpx;
       width: 22rpx;
       height: 22rpx;
     }
-  } 
-  .v-bottom-r{
-    background:linear-gradient(to right, #fdd100, #f18300);
+  }
+  .v-bottom-r {
+    background: linear-gradient(to right, #fdd100, #f18300);
     width: 300rpx;
     height: 80rpx;
     border-radius: 48rpx;
@@ -336,7 +337,7 @@ scroll-view {
     width: 28rpx;
     height: 28rpx;
   }
-  >text{
+  > text {
     margin-left: 9rpx;
     font-size: 28rpx;
     color: #fdd100;
@@ -347,33 +348,33 @@ scroll-view {
     height: 28rpx;
   }
 }
-.comment-container{
+.comment-container {
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,.3);
-  .comment-mask{
+  background-color: rgba(0, 0, 0, 0.3);
+  .comment-mask {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
   }
-  .comment-container-com{
+  .comment-container-com {
     width: 750rpx;
     height: 346rpx;
     background-color: #fff;
-    border-radius: 32rpx 32rpx 0 0 ;
+    border-radius: 32rpx 32rpx 0 0;
     position: absolute;
     bottom: 0;
-    textarea{
+    textarea {
       width: 686rpx;
       height: 180rpx;
       margin: 33rpx auto 0;
     }
-    .comment-submit{
+    .comment-submit {
       width: 184rpx;
       height: 72rpx;
       background: linear-gradient(to right, #fdd100, #f18300);
@@ -386,5 +387,16 @@ scroll-view {
       margin-left: 534rpx;
     }
   }
+}
+.wpl-btn {
+  margin: 40rpx auto 100rpx;
+  width: 184rpx;
+  height: 72rpx;
+  border-radius: 53rpx;
+  line-height: 72rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 28rpx;
+  background: linear-gradient(to right, #fdd100, #f18300);
 }
 </style>

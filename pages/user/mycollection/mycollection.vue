@@ -1,7 +1,7 @@
 <template>
   <view>
     <toyoBar :title="'我的收藏'"></toyoBar>
-    <view class="collection" v-for="index of 3" :key="index">
+    <view class="collection" v-for="index of 0" :key="index">
       <!-- 类型1：训练营课程 -->
       <view class="training-video" v-if="true" @tap="jump('/pages/findgoodlessons/coursedetails/coursedetails')">
         <view class="training-video-l">
@@ -36,15 +36,9 @@
         <view class="training-video" @tap="jump('/pages/findgoodlessons/videodetails/videodetails')">
           <view class="training-video-l">
             <image src="/static/logo.png" mode=""></image>
-            <view class="video-free" v-if="index==1">
-              免费看
-            </view>
+            <view class="video-free" v-if="index == 1">免费看</view>
           </view>
-          <view class="t-video-text">
-            <view class="t-video-text-t">
-              并发编程从入门到入魔并发编程从入门到入魔
-            </view>
-          </view>
+          <view class="t-video-text"><view class="t-video-text-t">并发编程从入门到入魔并发编程从入门到入魔</view></view>
           <view class="video-icon-num">
             <view class="">
               <image src="/static/play.png" mode=""></image>
@@ -58,6 +52,8 @@
         </view>
       </view>
     </view>
+    <!-- 无数据 -->
+    <toyoNoInfo :text="'暂无相关收藏'" :imgSrc="'/static/z-wsc.png'" v-if="true"></toyoNoInfo>
   </view>
 </template>
 
@@ -144,17 +140,17 @@ export default {
     }
   }
 }
-.t-r-viedo{
-  .training-video{
+.t-r-viedo {
+  .training-video {
     position: relative;
     width: 686rpx;
-    .video-free{
+    .video-free {
       position: absolute;
       top: -2rpx;
       left: -4rpx;
       width: 80rpx;
       height: 32rpx;
-      background: linear-gradient(to right, #FDD100 , #f18300);
+      background: linear-gradient(to right, #fdd100, #f18300);
       border-radius: 53rpx;
       font-size: 20rpx;
       color: #fff;
@@ -162,22 +158,22 @@ export default {
       text-align: center;
     }
   }
-  .video-icon-num{
+  .video-icon-num {
     position: absolute;
     bottom: 8rpx;
     left: 265rpx;
     font-size: 24rpx;
     color: #999;
-    >view{
+    > view {
       float: left;
       margin-right: 31rpx;
-      >image{
+      > image {
         width: 18rpx;
         height: 22rpx;
         margin-right: 8rpx;
         margin-bottom: -1rpx;
       }
-      .pll{
+      .pll {
         width: 22rpx;
         height: 21rpx;
       }

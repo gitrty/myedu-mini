@@ -1,7 +1,7 @@
 <template>
   <view>
     <toyoBar :title="'我的优惠券'"></toyoBar>
-    <view class="coupon" v-for="(item, index) in couponList" :key="index">
+    <view class="coupon" v-for="(item, index) in couponList" :key="index" v-if="false">
       <image :src="item.isUse ? '/static/coupon-use.png' : '/static/coupon.png'" mode=""></image>
       <view class="coupon-container">
         <view class="coupon-left">
@@ -22,6 +22,8 @@
         </view>
       </view>
     </view>
+    <!-- 无数据 -->
+     <toyoNoInfo :text="'暂无相关优惠券'" :imgSrc="'/static/z-wyhj.png'" v-if="true"></toyoNoInfo>
   </view>
 </template>
 

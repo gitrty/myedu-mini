@@ -12,14 +12,14 @@
        </view>
      </view>
      <view class="eva-rate">
-       <uniRate size="60" value="0" margin="13"></uniRate>
-       <view class="rate-text">
+       <uniRate size="54" value="0" margin="13"></uniRate>
+     <!--  <view class="rate-text">
          <text>很差</text>
          <text>差</text>
          <text>一般</text>
          <text>满意</text>
          <text>很满意</text>
-       </view>
+       </view> -->
      </view>
      <view class="eva-text">
        <textarea value="" placeholder="请输入对此课程的评价" fixed/>
@@ -70,7 +70,7 @@
   }
   .eva-rate{
     width: 686rpx;
-    height: 202rpx;
+    height: 145rpx;
     margin: 40rpx auto 0;
     border-top: 2rpx solid #ececec;
     border-bottom: 2rpx solid #ececec;

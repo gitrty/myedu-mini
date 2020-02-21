@@ -94,7 +94,7 @@
 
     <!-- 3 - 学员评价 -->
     <view class="student-evaluation" v-show="tabBar === 2">
-      <view class="evaluation-hz">
+      <view class="evaluation-hz" v-if="true">
         <view class="evaluation-hz-con">
           <text>评论</text>
           <text>666</text>
@@ -111,7 +111,7 @@
         <image src="../../../static/huise-r.png" mode=""></image>
       </view>
       <!-- 所有评论 -->
-      <view class="evaluation-container clearfix" v-for="index of 5" :key="index">
+      <view class="evaluation-container clearfix" v-for="index of 5" v-if="false" :key="index">
         <view class="evaluation-container-top">
           <image src="../../../static/logo.png" mode="" class="fl"></image>
           <text class="fl">用户名</text>
@@ -123,15 +123,17 @@
           <text class="fr">2018-02-10</text>
         </view>
       </view>
+      <!-- 无数据 -->
+      <toyoNoInfo :text="'暂无学员评价'" :imgSrc="'/static/z-wpj.png'" :pTop="120" v-if="true"></toyoNoInfo>
     </view>
 
     <!-- 底部-未开通会员 -->
     <view class="" v-if="!isVip">
       <view class="v-bottom">
-        <view class="course-ico">
+        <button class="course-ico kf-btn" open-type="contact">
           <image src="../../../static/kf.png" mode=""></image>
           <text>客服</text>
-        </view>
+        </button>
         <view class="course-ico">
           <image src="../../../static/sc.png" mode=""></image>
           <text>收藏</text>
@@ -142,7 +144,7 @@
         </view>
         <view class="v-bottom-r" @tap="jump('/pages/findgoodlessons/purchase/purchase')">立即购买</view>
       </view>
-      <view class="v-bottom2">
+      <view class="v-bottom2" @tap="jump('/pages/membership/membership')">
         <image src="../../../static/vip-icon.png" mode="" class="fl"></image>
         <text class="fl">点击开通会员，免费观看所有往期录播</text>
         <image src="../../../static/huise-r.png" mode="" class="fr"></image>
@@ -150,10 +152,10 @@
     </view>
     <!-- 底部-已开通会员 -->
     <view class="vip-v-bottom" v-if="isVip">
-      <view class="vip-v-bottom-l">
+      <button class="vip-v-bottom-l kf-btn" open-type="contact">
         <image src="../../../static/kf.png" mode=""></image>
         <text>客服</text>
-      </view>
+      </button>
       <view class="vip-v-bottom-l" @tap="fx">
         <image src="../../../static/fx.png" mode=""></image>
         <text>分享</text>
@@ -173,26 +175,22 @@
             <view class="hb-usertxt">XXXXX邀请你来咕泡学习</view>
             <view class="hb-container">
               <image src="../../../static/logo.png" mode="" class="kc-details"></image>
-              <view class="kc-one">
-                并发编程从入门到入魔
-              </view>
+              <view class="kc-one">并发编程从入门到入魔</view>
               <view class="kc-two">
                 <view class="">
                   <image src="../../../static/yxrs.png" mode=""></image>
                   <text>666人已学</text>
-                </view>   
+                </view>
                 <view class="">
                   <image src="../../../static/yxrs.png" mode=""></image>
                   <text>666条评论</text>
-                </view>   
+                </view>
                 <view class="">
                   <image src="../../../static/yxrs.png" mode=""></image>
                   <text>好评率100%</text>
                 </view>
               </view>
-              <view class="kc-three">
-                ￥199.00
-              </view>
+              <view class="kc-three">￥199.00</view>
             </view>
             <view class="kc-bottom">
               <image src="../../../static/logo.png" mode="" class="ewm"></image>
@@ -204,10 +202,12 @@
           </view>
         </view>
         <view class="mask-btns">
-          <view class="">
-            <image src="../../../static/wx.png" mode="" class="wx"></image>
-            <text>分享至好友</text>
-          </view>
+          <!-- <view class=""> -->
+            <button data-name="shareBtn" open-type="share">
+              <image src="../../../static/wx.png" mode="" class="wx"></image>
+              <text>分享至好友</text>
+            </button>
+          <!-- </view> -->
           <view class="" @tap="downloadImage">
             <image src="../../../static/hb.png" mode=""></image>
             <text>保存海报</text>
@@ -216,7 +216,7 @@
       </view>
     </view>
     <!-- 绘制海报 -->
-    <canvas style="width: 750rpx; height: 1334rpx;position:fixed ; background-color: red;" canvas-id="myCanvas"></canvas>
+    <canvas style="width: 750rpx; height: 1334rpx;position:fixed ;left: 100%; background-color: red;" canvas-id="myCanvas"></canvas>
   </view>
 </template>
 
@@ -224,7 +224,7 @@
 export default {
   data() {
     return {
-      tabBar: 0,
+      tabBar: 2,
       // 课程大纲下拉控制
       syllabusList: [{ isOpen: true }, { isOpen: false }],
       // 是否为会员
@@ -760,6 +760,11 @@ export default {
       width: 40rpx;
       height: 40rpx;
     }
+    button {
+      font-size: 20rpx;
+      color: #666;
+      line-height: 36rpx;
+    }
     text {
       font-size: 20rpx;
       color: #666;
@@ -789,7 +794,7 @@ export default {
   > image:nth-of-type(2) {
     width: 40rpx;
     height: 40rpx;
-    margin-left: 110rpx;
+    margin-left: 90rpx;
   }
 }
 .mask {
@@ -839,6 +844,23 @@ export default {
   font-size: 32rpx;
   color: #252525;
   align-items: center;
+  button {
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 32rpx;
+    flex: 1;
+    text-align: center;
+    > image {
+      width: 28rpx;
+      height: 22rpx;
+      margin-right: 8rpx;
+    }
+    .wx {
+      width: 40rpx;
+      height: 40rpx;
+      margin-bottom: -8rpx;
+    }
+  }
   > view {
     height: 64rpx;
     flex: 1;
@@ -855,7 +877,7 @@ export default {
     }
   }
   > view:nth-of-type(1) {
-    border-right: 2rpx solid #f4f4f4;
+    border-left: 2rpx solid #f4f4f4;
   }
 }
 .mask-hb {
@@ -871,7 +893,7 @@ export default {
 .mask-hb-con {
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 24rpx rgba(0,0,0,.08);
+  box-shadow: 0 0 24rpx rgba(0, 0, 0, 0.08);
   border-radius: 24rpx;
   position: relative;
   .hb-bg {
@@ -907,50 +929,50 @@ export default {
     width: 90%;
     height: 300rpx;
     top: 170rpx;
-    box-shadow: 0 0 24rpx rgba(0,0,0,.08);
-    left:20rpx; 
+    box-shadow: 0 0 24rpx rgba(0, 0, 0, 0.08);
+    left: 20rpx;
     .kc-details {
       width: 100%;
       height: 190rpx;
     }
-    .kc-one{
+    .kc-one {
       padding: 0 10rpx;
       font-size: 22rpx;
     }
-    .kc-two{
+    .kc-two {
       margin: 4rpx 0 8rpx;
       padding: 0 10rpx;
       font-size: 18rpx;
       display: flex;
-      >view{
+      > view {
         margin-right: 13rpx;
         color: #666;
       }
-      image{
+      image {
         width: 14rpx;
         height: 14rpx;
         margin-right: 4rpx;
       }
     }
-    .kc-three{
+    .kc-three {
       padding: 0 10rpx;
       font-size: 22rpx;
       color: #f18300;
     }
   }
 }
-.kc-bottom{
+.kc-bottom {
   position: absolute;
   width: 100%;
   height: 100rpx;
   z-index: 3;
   bottom: 50rpx;
-  .ewm{
+  .ewm {
     width: 100rpx;
     height: 100rpx;
     margin-left: 42rpx;
   }
-  .fx-text{
+  .fx-text {
     position: absolute;
     top: 20rpx;
     right: 0rpx;
@@ -962,5 +984,8 @@ export default {
     font-size: 19rpx;
     color: #999;
   }
+}
+.kf-btn {
+  line-height: 30rpx;
 }
 </style>

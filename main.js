@@ -10,10 +10,12 @@ Vue.use(mixins)
 
 import toyoBar from '@components/toyo-bar'
 import toyoRate from '@components/toyo-rate'
+import toyoNoInfo from '@components/toyo-noinfo'
 import uniRate from '@components/uni-rate/uni-rate'
 Vue.component('toyoBar', toyoBar)
 Vue.component('toyoRate', toyoRate)
 Vue.component('uniRate', uniRate)
+Vue.component('toyoNoInfo', toyoNoInfo)
 
 Vue.config.productionTip = false
 

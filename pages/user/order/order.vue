@@ -1,7 +1,7 @@
 <template>
   <view>
     <toyoBar :title="'我的订单'"></toyoBar>
-    <view class="order" v-for="index of 4" :key="index" @tap="jump('/pages/user/orderdetails/orderdetails')">
+    <view class="order" v-for="index of 4" :key="index" v-if="false" @tap="jump('/pages/user/orderdetails/orderdetails')">
       <view class="training-video">
         <view class="training-video-l"><image src="/static/logo.png" mode=""></image></view>
         <view class="t-video-text">
@@ -17,6 +17,8 @@
         <view class="btn-del fr" v-if="false">删除订单</view>
       </view>
     </view>
+    <!-- 无数据 -->
+     <toyoNoInfo :text="'暂无相关订单'" :imgSrc="'/static/z-wdd.png'" v-if="true"></toyoNoInfo>
   </view>
 </template>
 
