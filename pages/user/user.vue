@@ -46,9 +46,7 @@
         </view>
       </view>
     </view>
-    <view class="user-esc">
-      <text>退出账户</text>
-    </view>
+   
   </view>
 </template>
 

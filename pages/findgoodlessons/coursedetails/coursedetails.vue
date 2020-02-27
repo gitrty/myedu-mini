@@ -94,7 +94,7 @@
 
     <!-- 3 - 学员评价 -->
     <view class="student-evaluation" v-show="tabBar === 2">
-      <view class="evaluation-hz" v-if="true">
+      <!--  <view class="evaluation-hz" v-if="true">
         <view class="evaluation-hz-con">
           <text>评论</text>
           <text>666</text>
@@ -102,6 +102,42 @@
         <view class="evaluation-hz-con">
           <text>好评率</text>
           <text>100%</text>
+        </view>
+      </view> -->
+      <view class="evaluation-hz2">全部评论 666</view>
+      <view class="evaluation-rate">
+        <view class="evaluation-rate-left">4.5</view>
+        <view class="evaluation-rate-right">
+          <view class="evaluation-rate-con clearfix">
+            <view class="evaluation-rate-mid fr"><view class="" :style="{ width: 325 * 0.64 + 'rpx' }"></view></view>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+          </view>
+          <view class="evaluation-rate-con clearfix">
+            <view class="evaluation-rate-mid fr"><view class="" :style="{ width: 325 * 0.64 + 'rpx' }"></view></view>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+          </view>
+          <view class="evaluation-rate-con clearfix">
+            <view class="evaluation-rate-mid fr"><view class="" :style="{ width: 325 * 0.64 + 'rpx' }"></view></view>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+          </view>
+          <view class="evaluation-rate-con clearfix">
+            <view class="evaluation-rate-mid fr"><view class="" :style="{ width: 325 * 0.64 + 'rpx' }"></view></view>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+          </view>
+          <view class="evaluation-rate-con clearfix">
+            <view class="evaluation-rate-mid fr"><view class="" :style="{ width: 325 * 0.64 + 'rpx' }"></view></view>
+            <image src="../../../static/pj-wx.png" mode="" class="fr"></image>
+          </view>
         </view>
       </view>
       <!-- 会员状态 - 评论课程 -->
@@ -111,20 +147,25 @@
         <image src="../../../static/huise-r.png" mode=""></image>
       </view>
       <!-- 所有评论 -->
-      <view class="evaluation-container clearfix" v-for="index of 5" v-if="false" :key="index">
+      <view class="evaluation-container clearfix" v-for="index of 5" v-if="true" :key="index">
         <view class="evaluation-container-top">
           <image src="../../../static/logo.png" mode="" class="fl"></image>
-          <text class="fl">用户名</text>
-          <view class="fr"><toyoRate :value="5" :checkValue="5"></toyoRate></view>
+          <view class="pf-top">
+            <view class="">
+              <text class="fl">用户名</text>
+              <view class="fr"><toyoRate :value="5" :checkValue="5"></toyoRate></view>
+            </view>
+            <view class="">
+              <view class="fl">已上课12时33分时评论</view>
+              <view class="fr">2018-02-10</view>
+            </view>
+          </view>
         </view>
         <view class="evaluation-container-mid">课程知识点丰富，老师也幽默有趣 课程知识点丰富，老师也幽默有趣 课程知识点丰富，老师也幽默有趣</view>
-        <view class="evaluation-container-bottom">
-          <text class="fl">已上课12时33分时评论</text>
-          <text class="fr">2018-02-10</text>
-        </view>
+        <view class="" style="height: 2rpx;background-color: #ececec;width: 581rpx;margin-left: 100rpx;margin-top: 32rpx;"></view>
       </view>
       <!-- 无数据 -->
-      <toyoNoInfo :text="'暂无学员评价'" :imgSrc="'/static/z-wpj.png'" :pTop="120" v-if="true"></toyoNoInfo>
+      <toyoNoInfo :text="'暂无学员评价'" :imgSrc="'/static/z-wpj.png'" :pTop="120" v-if="false"></toyoNoInfo>
     </view>
 
     <!-- 底部-未开通会员 -->
@@ -203,10 +244,10 @@
         </view>
         <view class="mask-btns">
           <!-- <view class=""> -->
-            <button data-name="shareBtn" open-type="share">
-              <image src="../../../static/wx.png" mode="" class="wx"></image>
-              <text>分享至好友</text>
-            </button>
+          <button data-name="shareBtn" open-type="share">
+            <image src="../../../static/wx.png" mode="" class="wx"></image>
+            <text>分享至好友</text>
+          </button>
           <!-- </view> -->
           <view class="" @tap="downloadImage">
             <image src="../../../static/hb.png" mode=""></image>
@@ -230,7 +271,7 @@ export default {
       // 是否为会员
       isVip: false,
       // 分享海报页面
-      fxMask: true,
+      fxMask: false,
       // 生成海报路径
       fxImage: ''
     };
@@ -676,20 +717,33 @@ export default {
 .evaluation-container {
   padding: 0 32rpx;
   padding-top: 38rpx;
-  padding-bottom: 27rpx;
-  border-bottom: 2rpx solid #ececec;
   .evaluation-container-top {
-    height: 56rpx;
-    line-height: 56rpx;
+    height: 80rpx;
+    display: flex;
+    // line-height: 56rpx;
     > image {
-      width: 56rpx;
-      height: 56rpx;
+      width: 80rpx;
+      height: 80rpx;
       border-radius: 50%;
       margin-right: 22rpx;
     }
-    > text {
-      font-size: 30rpx;
+    text {
+      font-size: 32rpx;
       color: #252525;
+    }
+    .pf-top {
+      width: 580rpx;
+      > view:nth-of-type(1) {
+        height: 45rpx;
+      }
+      > view:nth-of-type(2) {
+        height: 33rpx;
+        font-size: 24rpx;
+        color: #999;
+        >view:nth-of-type(2) {
+          margin-right: 13rpx;
+        }
+      }
     }
   }
   .evaluation-container-mid {
@@ -697,6 +751,7 @@ export default {
     color: #252525;
     margin-top: 16rpx;
     margin-bottom: 12rpx;
+    padding-left: 100rpx;
   }
   .evaluation-container-bottom {
     font-size: 24rpx;
@@ -987,5 +1042,41 @@ export default {
 }
 .kf-btn {
   line-height: 30rpx;
+}
+.evaluation-hz2 {
+  padding: 32rpx;
+  font-size: 36rpx;
+}
+.evaluation-rate {
+  font-size: 120rpx;
+  color: #333;
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  .evaluation-rate-right {
+    width: 450rpx;
+    padding-top: 30rpx;
+  }
+  .evaluation-rate-con {
+    height: 16rpx;
+    margin-bottom: 11rpx;
+    .evaluation-rate-mid {
+      width: 325rpx;
+      height: 10rpx;
+      border-radius: 10rpx;
+      background-color: #f4f4f4;
+      > view {
+        height: 10rpx;
+        border-radius: 10rpx;
+        background: linear-gradient(to right, #fdd100, #f18300);
+      }
+    }
+    > image {
+      width: 18rpx;
+      height: 18rpx;
+      margin-right: 8rpx;
+      margin-top: -2rpx;
+    }
+  }
 }
 </style>

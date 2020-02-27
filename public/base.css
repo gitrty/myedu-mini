@@ -18,44 +18,11 @@ text {
   float: right;
 }
 
-.fw{
-  font-weight: 700;
-}
-
-.tblank {
-  color: #333;
-}
-
-.tgary {
-  color: #999;
-}
-
-.tblue {
-  color: #2764DD;
-}
-
-.tgold {
-  color: #FCD901;
-}
-
-.tred {
-  color: #F45834;
-}
-
-.tred2{
-  color: #E14420;
-}
-
-.tgreen{
-  color: #63DD27;
-}
-
 button::after {
   border: none;
 }
 
 button {
-  line-height: none;
   background-color: #fff;
   border-radius:0;
   padding: 0;

@@ -1,7 +1,7 @@
 <template>
   <view>
     <toyoBar :title="'学籍详情'"></toyoBar>
-    <view class="" v-if="false">
+    <view class="" v-if="true">
       <view class="status-top">
         <image src="../../../static/my-bg.png" mode="" class="status-img"></image>
         <view class="qy-book">
@@ -85,29 +85,29 @@
       </view>
       <view class="status-flex">
         <view class="">
-          <view class=""><image src="../../../static/logo.png" mode=""></image></view>
+          <view class=""><image src="../../../static/zz-1.png" mode=""></image></view>
           <text>全课程解锁</text>
         </view>
         <view class="">
-          <view class=""><image src="../../../static/logo.png" mode=""></image></view>
+          <view class=""><image src="../../../static/zz-2.png" mode=""></image></view>
           <text>职业规划</text>
         </view>
         <view class="">
-          <view class=""><image src="../../../static/logo.png" mode=""></image></view>
+          <view class=""><image src="../../../static/zz-3.png" mode=""></image></view>
           <text>资源互享</text>
         </view>
         <view class="">
-          <view class=""><image src="../../../static/logo.png" mode=""></image></view>
+          <view class=""><image src="../../../static/zz-4.png" mode=""></image></view>
           <text>周边福利</text>
         </view>
         <view class="">
-          <view class=""><image src="../../../static/logo.png" mode=""></image></view>
+          <view class=""><image src="../../../static/zz-5.png" mode=""></image></view>
           <text>GPer会员</text>
         </view>
       </view>
     </view>
     <!-- 无数据 -->
-     <toyoNoInfo :text="'暂无相关学籍'" :imgSrc="'/static/z-wxj.png'" v-if="true"></toyoNoInfo>
+     <toyoNoInfo :text="'暂无相关学籍'" :imgSrc="'/static/z-wxj.png'" v-if="false"></toyoNoInfo>
   </view>
 </template>
 
@@ -312,14 +312,14 @@ export default {
     > view {
       width: 80rpx;
       height: 80rpx;
-      background: linear-gradient(to right, #4d4d4d, #262626);
+      // background: linear-gradient(to right, #4d4d4d, #262626);
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       > image {
-        width: 39rpx;
-        height: 33rpx;
+        width: 100%;
+        height: 100%;
       }
     }
     > text {

@@ -31,8 +31,8 @@ export default {
   text-align: center;
 }
 .z-wsc {
-  width: 160rpx;
-  height: 160rpx;
+  width: 220rpx;
+  height: 220rpx;
   margin-bottom: 16rpx;
 }
 </style>
