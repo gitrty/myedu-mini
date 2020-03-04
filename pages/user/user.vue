@@ -3,12 +3,19 @@
     <view class="user-top">
       <image src="../../static/user-bg.png" mode="" class="user-bg"></image>
       <view class="user-mask">
-        <view class="user-info" @tap="jump('/pages/user/userinfo/userinfo')">
-          <image src="../../static/logo.png" mode=""></image>
+        <!-- 已登录 -->
+        <view class="user-info" @tap="jump('/pages/user/userinfo/userinfo')" v-if="nickName">
+          <image :src="avatarUrl" mode=""></image>
           <!-- vip用户标志 -->
           <image src="../../static/vip.png" mode="" v-if="true"></image>
-          <text>用户名</text>
+          <text>{{nickName}}</text>
         </view>
+        <!-- 未登录 -->
+        <view class="user-info" @tap="jump('/pages/user/wxlogin/wxlogin')" v-if="!nickName">
+          <image src="../../static/logo.png" mode=""></image>
+          <text>点击登录</text>
+        </view>
+        
         <view class="user-flex">
           <view class="user-flex-con" @tap="jump('/pages/user/order/order')">
             <text>5</text>
@@ -53,7 +60,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      nickName:'',
+      avatarUrl:''
+    };
+  },
+  onShow() {
+    this.nickName = uni.getStorageSync('nickName')
+    this.avatarUrl = uni.getStorageSync('avatarUrl')
   }
 };
 </script>

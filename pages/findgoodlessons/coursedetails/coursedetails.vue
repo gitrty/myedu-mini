@@ -151,13 +151,13 @@
         <view class="evaluation-container-top">
           <image src="../../../static/logo.png" mode="" class="fl"></image>
           <view class="pf-top">
-            <view class="">
+            <view class="clearfix">
               <text class="fl">用户名</text>
               <view class="fr"><toyoRate :value="5" :checkValue="5"></toyoRate></view>
             </view>
-            <view class="">
-              <view class="fl">已上课12时33分时评论</view>
-              <view class="fr">2018-02-10</view>
+            <view class="pj-con-bot">
+              <view class="">已上课12时33分时评论</view>
+              <view class="">2018-02-10</view>
             </view>
           </view>
         </view>
@@ -1054,7 +1054,7 @@ export default {
   display: flex;
   justify-content: space-between;
   .evaluation-rate-right {
-    width: 450rpx;
+    width: 470rpx;
     padding-top: 30rpx;
   }
   .evaluation-rate-con {
@@ -1078,5 +1078,10 @@ export default {
       margin-top: -2rpx;
     }
   }
+}
+.pj-con-bot{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

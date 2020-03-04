@@ -14,7 +14,7 @@
         </view>
       </view>
     </view>
-    <view class="user-esc"><text>退出账户</text></view>
+    <view class="user-esc"><text @tap="escLogin">退出账户</text></view>
   </view>
 </template>
 
@@ -22,6 +22,29 @@
 export default {
   data() {
     return {};
+  },
+  methods: {
+    escLogin() {
+      let _this = this;
+      uni.showModal({
+        title: '温馨提示',
+        content: '确认退出登录吗？',
+        success: function(res) {
+          if (res.confirm) {
+            // console.log('用户点击确定');
+            uni.removeStorageSync('nickName');
+            uni.removeStorageSync('avatarUrl');
+            uni.removeStorageSync('code');
+            _this.showToast('退出登录成功');
+            setTimeout(() => {
+              uni.navigateBack();
+            }, 800);
+          } else if (res.cancel) {
+            // console.log('用户点击取消');
+          }
+        }
+      });
+    }
   }
 };
 </script>

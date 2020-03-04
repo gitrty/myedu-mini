@@ -82,7 +82,11 @@
       "path": "pages/user/Admissionmanual/Admissionmanual",
       "style": {}
     }
-  ],
+      ,{
+            "path" : "pages/user/wxlogin/wxlogin",
+            "style" : {}
+        }
+    ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -214,6 +218,10 @@
     }, {
       "name": "Admissionmanual", //模式名称
       "path": "pages/user/Admissionmanual/Admissionmanual", //启动页面，必选
+      "query": "" //启动参数，在页面的onLoad函数里面得到。
+    }, {
+      "name": "wxlogin", //模式名称
+      "path": "pages/user/wxlogin/wxlogin", //启动页面，必选
       "query": "" //启动参数，在页面的onLoad函数里面得到。
     }]
   }
