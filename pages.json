@@ -81,12 +81,11 @@
     }, {
       "path": "pages/user/Admissionmanual/Admissionmanual",
       "style": {}
+    }, {
+      "path": "pages/user/wxlogin/wxlogin",
+      "style": {}
     }
-      ,{
-            "path" : "pages/user/wxlogin/wxlogin",
-            "style" : {}
-        }
-    ],
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",

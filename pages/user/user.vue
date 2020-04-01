@@ -8,14 +8,14 @@
           <image :src="avatarUrl" mode=""></image>
           <!-- vip用户标志 -->
           <image src="../../static/vip.png" mode="" v-if="true"></image>
-          <text>{{nickName}}</text>
+          <text>{{ nickName }}</text>
         </view>
         <!-- 未登录 -->
         <view class="user-info" @tap="jump('/pages/user/wxlogin/wxlogin')" v-if="!nickName">
           <image src="../../static/logo.png" mode=""></image>
           <text>点击登录</text>
         </view>
-        
+
         <view class="user-flex">
           <view class="user-flex-con" @tap="jump('/pages/user/order/order')">
             <text>5</text>
@@ -53,7 +53,8 @@
         </view>
       </view>
     </view>
-   
+    <!-- webview 嵌入 H5 -->
+    <!-- <web-view src="http://127.0.0.1:5500/1.html" @message="webViewMessage"></web-view> -->
   </view>
 </template>
 
@@ -61,13 +62,23 @@
 export default {
   data() {
     return {
-      nickName:'',
-      avatarUrl:''
+      nickName: '',
+      avatarUrl: ''
     };
   },
   onShow() {
-    this.nickName = uni.getStorageSync('nickName')
-    this.avatarUrl = uni.getStorageSync('avatarUrl')
+    this.nickName = uni.getStorageSync('nickName');
+    this.avatarUrl = uni.getStorageSync('avatarUrl');
+  },
+
+  methods: {
+    webViewMessage(e) {
+      console.info(e.detail.data);
+    }
+  },
+
+  onLoad(e) {
+    console.info(e);
   }
 };
 </script>
@@ -103,7 +114,7 @@ export default {
         height: 144rpx;
         border-radius: 50%;
         margin-right: 38rpx;
-      }   
+      }
       > image:nth-of-type(2) {
         position: absolute;
         width: 44rpx;
@@ -176,7 +187,7 @@ export default {
     border: none;
   }
 }
-.user-esc{
+.user-esc {
   font-size: 32rpx;
   color: #e8e8e8;
   margin-top: 208rpx;
